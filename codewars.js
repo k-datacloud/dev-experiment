@@ -9,4 +9,3 @@ window.addEventListener('scroll', ()=> {
     boxs[0].style.transform = `translateY(-${window.scrollY * 1}px)`;
     boxs[1].style.transform = `translateY(-${window.scrollY * 0.4}px)`;
 })
-
