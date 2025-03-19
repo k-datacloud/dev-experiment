@@ -12,21 +12,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   box-sizing: border-box;
 }
 
-.header {
-  width: 100%;
-  padding: 20px 40px;
-}
-.header__list {
-  display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
-  list-style: none;
-}
-.header .link__inner {
-  position: relative;
-  overflow: hidden;
-  height: auto;
-}
 .header__link {
   font-family: "Zen Kaku Gothic Antique", sans-serif;
   font-style: normal;
@@ -35,26 +20,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   line-height: 1.75;
   color: #312d2b;
   text-decoration: none;
-  display: block;
-  transition: transform 0.3s;
-}
-.header .ketu {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #312d2b;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  transition: top 0.3s;
-}
-.header .link__inner:hover .header__link {
-  transform: translateY(-100%);
-}
-.header .link__inner:hover .ketu {
-  top: 0;
 }
 
 .hero {
@@ -175,6 +140,4 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

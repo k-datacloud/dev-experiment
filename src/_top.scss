@@ -44,6 +44,55 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     box-sizing: border-box;
 }
 
+.header {
+    width: 100%;
+    padding: 20px 40px;
+
+    
+    &__list {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    // &__item {
+    //     width: 30px;
+    //     height: 30px;
+    // }
+
+    .link__inner {
+        position: relative;
+        overflow: hidden;
+        height: auto;
+    }
+
+    &__link {
+        @include zenkaku(16, 400);
+        color: #312d2b;
+        text-decoration: none;
+        display: block;
+        transition: transform 0.3s;
+    }
+
+    .ketu {
+        @include zenkaku(16, 400);
+        color: #312d2b;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: top 0.3s;
+    }
+
+    .link__inner:hover .header__link {
+        transform: translateY(-100%);
+    }
+
+    .link__inner:hover .ketu {
+        top: 0;
+    }
+}
+
 
 .hero {
     width: 100%;
