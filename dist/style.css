@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
 .hero {
   width: 100%;
+  position: relative;
 }
 .hero__wrapper {
   width: 100%;
@@ -71,6 +72,21 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   .hero__wrapper {
     padding: 0 0 11.25rem;
   }
+}
+.hero .fixed-label {
+  position: absolute;
+  top: 18%;
+  left: 28px;
+}
+.hero .fixed-label__text {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: #312d2b;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.25rem;
 }
 .hero__content {
   width: 100%;
@@ -91,7 +107,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   }
 }
 .hero__img {
-  width: calc(100% - 50px);
+  width: 100%;
   margin-left: auto;
   margin-right: -46px;
 }
