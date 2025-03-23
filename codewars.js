@@ -23,3 +23,12 @@ for (let index = 0; index < links.length; index++) {
         linksSpan[index].classList.remove('active');
     });
 }
+
+// window.addEventListener("scroll", function () {
+//     const eyecatch = document.querySelector(".eyecatch");
+//     const scrollY = window.scrollY;
+//     const speed = 0.3; // Adjust the speed to your liking
+//     const ypos = scrollY * speed;
+
+//     eyecatch.style.backgroundPosition = `center calc(50% + ${ypos}px)`;  // スクロールに応じて背景位置を変更
+// });
