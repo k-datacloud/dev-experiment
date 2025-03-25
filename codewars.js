@@ -32,3 +32,19 @@ for (let index = 0; index < links.length; index++) {
 
 //     eyecatch.style.backgroundPosition = `center calc(50% + ${ypos}px)`;  // スクロールに応じて背景位置を変更
 // });
+
+window.addEventListener('scroll', () => {
+    const section = document.querySelector('.eyecatch img');
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    const height = window.innerHeight;
+
+    if (rect.top < height && rect.bottom > 0) {
+        let percent = (height - rect.top) / height;
+        let move = percent * -100;
+        section.style.transform = `translateY(${move}px)`;
+    } else {
+        console.log('error'); 
+    }
+    
+});
