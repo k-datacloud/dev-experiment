@@ -1,0 +1,120 @@
+@mixin inter($size, $weight) {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: $weight;
+    font-size: calc($size / 16 * 1rem);
+
+    @if $size > 24 {
+        line-height: 1.5;
+    } @else {
+        line-height: 1.75;
+    }
+}
+
+@mixin arial($size, $weight) {
+    font-family: "Arial", sans-serif;
+    font-style: normal;
+    font-weight: $weight;
+    font-size: calc($size / 16 * 1rem);
+    color: #fc3636;
+}
+
+$breakpoints: (
+    sm: 560px,
+    medium: 680px,
+    lg: 1024px,
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    }
+}
+
+;
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background-color: #f7f7f7;
+}
+
+h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.intro {
+
+    &__wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__inner {
+
+        @include respond-to(lg) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: calc(20/16 * 1rem);
+        }
+    }
+
+    &__content {
+
+        @include respond-to(lg) {
+            grid-column-start: 2;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    &__number-pc {
+        display: none;
+
+        @include respond-to(lg) {
+            display: block;
+            @include inter(96, 600);
+            color: #000000;
+            letter-spacing: -10%;
+            text-transform: capitalize;
+        }
+    }
+
+    &__title {
+        @include inter(32, 600);
+        color: #000000;
+        letter-spacing: -4%;
+        text-transform: capitalize;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #000000;
+        border-radius: 50%;
+    }
+
+    &__text {
+        @include inter(24, 300);
+        color: #000000;
+        margin-top: 1rem;
+        line-height: 1.7;
+        letter-spacing: -4%;
+    }
+}

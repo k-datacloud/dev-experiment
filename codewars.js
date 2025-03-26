@@ -48,3 +48,19 @@ window.addEventListener('scroll', () => {
     }
     
 });
+
+window.addEventListener('scroll', () => {
+    const section = document.querySelector('.eyecatch');
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    const height = window.innerHeight;
+
+    if (rect.top < height && rect.bottom > 0) {
+        let percent = (height - rect.top) / height;
+        let move = percent * -150;
+        section.style.backgroundPosition = `center ${move}px`;
+    } else {
+        console.log('error'); 
+    }
+    
+});
