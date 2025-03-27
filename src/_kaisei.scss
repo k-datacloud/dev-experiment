@@ -4,12 +4,6 @@
     font-weight: $weight;
     font-size: calc($size / 16 * 1rem);
     color: #000000;
-
-    @if $size > 24 {
-        line-height: 1.5;
-    } @else {
-        line-height: 1.75;
-    }
 }
 
 @mixin arial($size, $weight) {
@@ -22,7 +16,7 @@
 
 $breakpoints: (
     sm: 560px,
-    medium: 680px,
+    medium: 768px,
     lg: 1024px,
 );
 
@@ -58,9 +52,106 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     display: flex;
 }
 
+.header {
+    width: 100%;
+    padding: 20px;
+
+    @include respond-to(lg) {
+        padding: 20px 40px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex;
+    }
+
+    &__title {
+        @include inter(14, 500);
+        text-transform: capitalize;
+        text-decoration: none;
+    }
+
+    &__nav {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        z-index: -1;
+        opacity: 0;
+
+        @include respond-to(lg) {
+            height: auto;
+            position: static;
+            opacity: 1;
+        }
+    }
+
+    &__list-sp {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        list-style: none;
+        padding: calc(160/16 * 1rem) 40px 0;
+
+        @include respond-to(lg) {
+            display: none;
+        }
+    }
+
+    &__list-pc {
+        display: none;
+
+        @include respond-to(lg) {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            justify-content: flex-end;
+        }
+    }
+
+    .header-list {
+
+        &__link {
+            @include inter(14, 500);
+            text-transform: capitalize;
+            text-decoration: none;
+
+            &--red {
+                display: block;
+                color: #fc3636;
+                font-size: calc(32/16 * 1rem);
+                font-weight: 400;
+                letter-spacing: calc(-28 * 0.04px);
+            }
+        }
+    }
+
+    .menu-btn {
+        @include inter(14, 500);
+        text-transform: capitalize;
+
+        @include respond-to(lg) {
+            display: none;
+        }
+    }
+}
+
 .hero {
     width: 100%;
-    height: 100vh;
+    margin-bottom: calc(120/16 * 1rem);
+    
+    @include respond-to(lg) {
+        height: calc(100vh - 80px);
+        
+    }
 
     &__wrapper {
         width: 100%;
@@ -69,19 +160,37 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         padding: 0 20px;
         // display: grid;
         grid-template-rows: auto auto;
+
+        @include respond-to(lg) {
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     &__content-main {
-        padding: calc(96/16 * 1rem) 0 calc(80/16 * 1rem);
+        padding: calc(64/16 * 1rem) 0 calc(80/16 * 1rem);
         display: flex;
         flex-direction: column;
         gap: calc(24/16 * 1rem);
         overflow: hidden;
+
+        @include respond-to(medium) {
+            width: calc(1280/1440 * 100%);
+            margin: 0 auto;
+            flex-direction: row-reverse;
+            padding: calc(200/16 * 1rem) 0 0;
+        }
     }
 
     &__content-btm {
         display: flex;
         justify-content: space-between;
+
+        @include respond-to(lg) {
+            margin-top: auto;
+            padding-bottom: 40px;
+        }
     }
 
     .flexbox {
@@ -94,15 +203,39 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         letter-spacing: calc(-48px * 0.04);
         text-align: center;
         font-size: min(48px, 12vw);
+
+        @include respond-to(lg) {
+            font-size: calc(90/16 * 1rem);
+        }
     }
 
     &__text {
         @include inter(14, 500);
         text-transform: capitalize;
 
+        @include respond-to(lg) {
+            font-size: 1rem;
+        }
+
         &--light {
             font-weight: 300;
-            font-size: 1rem;
+            font-size: min(1rem, 4vw);
+            text-align: center;
+
+            @include respond-to(lg) {
+                display: none;
+            }
+        }
+
+        &--light-pc {
+            display: none;
+
+            @include respond-to(lg) {
+                display: block;
+                font-weight: 300;
+                font-size: calc(24/16 * 1rem);
+                text-align: center;
+            }
         }
     }
 
@@ -138,6 +271,16 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         &__link {
             @include inter(14, 500);
             text-decoration: none;
+
+            @include respond-to(lg) {
+                font-size: 1rem;
+                opacity: 1;
+                transition: opacity 0.3s;
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
         }
     }
 }

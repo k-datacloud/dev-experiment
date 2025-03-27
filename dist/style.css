@@ -16,9 +16,111 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   display: flex;
 }
 
-.hero {
+.header {
+  width: 100%;
+  padding: 20px;
+}
+@media (min-width: 1024px) {
+  .header {
+    padding: 20px 40px;
+  }
+}
+.header__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  display: flex;
+}
+.header__title {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.header__nav {
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: -1;
+  opacity: 0;
+}
+@media (min-width: 1024px) {
+  .header__nav {
+    height: auto;
+    position: static;
+    opacity: 1;
+  }
+}
+.header__list-sp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 10rem 40px 0;
+}
+@media (min-width: 1024px) {
+  .header__list-sp {
+    display: none;
+  }
+}
+.header__list-pc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .header__list-pc {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: flex-end;
+  }
+}
+.header .header-list__link {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.header .header-list__link--red {
+  display: block;
+  color: #fc3636;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -1.12px;
+}
+.header .menu-btn {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  text-transform: capitalize;
+}
+@media (min-width: 1024px) {
+  .header .menu-btn {
+    display: none;
+  }
+}
+
+.hero {
+  width: 100%;
+  margin-bottom: 7.5rem;
+}
+@media (min-width: 1024px) {
+  .hero {
+    height: calc(100vh - 80px);
+  }
 }
 .hero__wrapper {
   width: 100%;
@@ -27,16 +129,37 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   padding: 0 20px;
   grid-template-rows: auto auto;
 }
+@media (min-width: 1024px) {
+  .hero__wrapper {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+  }
+}
 .hero__content-main {
-  padding: 6rem 0 5rem;
+  padding: 4rem 0 5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   overflow: hidden;
 }
+@media (min-width: 768px) {
+  .hero__content-main {
+    width: 88.8888888889%;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+    padding: 12.5rem 0 0;
+  }
+}
 .hero__content-btm {
   display: flex;
   justify-content: space-between;
+}
+@media (min-width: 1024px) {
+  .hero__content-btm {
+    margin-top: auto;
+    padding-bottom: 40px;
+  }
 }
 .hero .flexbox {
   flex-direction: column;
@@ -47,11 +170,15 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-weight: 500;
   font-size: 3rem;
   color: #000000;
-  line-height: 1.5;
   text-transform: capitalize;
   letter-spacing: -1.92px;
   text-align: center;
   font-size: min(48px, 12vw);
+}
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: 5.625rem;
+  }
 }
 .hero__text {
   font-family: "Inter", sans-serif;
@@ -59,12 +186,33 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-weight: 500;
   font-size: 0.875rem;
   color: #000000;
-  line-height: 1.75;
   text-transform: capitalize;
+}
+@media (min-width: 1024px) {
+  .hero__text {
+    font-size: 1rem;
+  }
 }
 .hero__text--light {
   font-weight: 300;
-  font-size: 1rem;
+  font-size: min(1rem, 4vw);
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .hero__text--light {
+    display: none;
+  }
+}
+.hero__text--light-pc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .hero__text--light-pc {
+    display: block;
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
 .hero .red-circle {
   margin: 0 auto;
@@ -97,8 +245,17 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-weight: 500;
   font-size: 0.875rem;
   color: #000000;
-  line-height: 1.75;
   text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .hero .hero-list__link {
+    font-size: 1rem;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+  .hero .hero-list__link:hover {
+    opacity: 0.5;
+  }
 }
 
 .intro__wrapper {
@@ -134,7 +291,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     font-weight: 600;
     font-size: 6rem;
     color: #000000;
-    line-height: 1.5;
     color: #000000;
     letter-spacing: -10%;
     text-transform: capitalize;
@@ -146,7 +302,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-weight: 600;
   font-size: 2rem;
   color: #000000;
-  line-height: 1.5;
   color: #000000;
   letter-spacing: -4%;
   text-transform: capitalize;
@@ -163,7 +318,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-weight: 300;
   font-size: 1.5rem;
   color: #000000;
-  line-height: 1.75;
   color: #000000;
   margin-top: 1rem;
   line-height: 1.7;
