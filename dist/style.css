@@ -4,7 +4,6 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  background-color: #f7f7f7;
 }
 
 h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a {
@@ -13,436 +12,93 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   box-sizing: border-box;
 }
 
-.dummy {
-  width: 100%;
-  height: 100vh;
-  background-color: #f7f7f7;
+.flexbox {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header {
-  width: 100%;
-  padding: 20px 40px;
-}
-.header__list {
-  display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
-  list-style: none;
-}
-.header .link__inner {
-  position: relative;
-  overflow: hidden;
-  height: auto;
-}
-.header__link {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #312d2b;
-  text-decoration: none;
-  display: block;
-  transition: transform 0.3s;
-}
-.header .ketu {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #312d2b;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  transition: top 0.3s;
-}
-.header .link__inner:hover .header__link {
-  transform: translateY(-100%);
-}
-.header .link__inner:hover .ketu {
-  top: 0;
 }
 
 .hero {
   width: 100%;
-  background-color: #f7f7f7;
-  position: relative;
+  height: 100vh;
 }
 .hero__wrapper {
   width: 100%;
+  height: 100%;
   margin: 0 auto;
-  max-width: 1280px;
-  padding: 11.25rem 0;
+  padding: 0 20px;
+  grid-template-rows: auto auto;
 }
-@media (min-width: 1024px) {
-  .hero__wrapper {
-    padding: 0 0 11.25rem;
-  }
-}
-.hero .fixed-label {
-  position: absolute;
-  top: 18%;
-  left: 28px;
-}
-.hero .fixed-label__text {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.75;
-  color: #312d2b;
-  writing-mode: vertical-rl;
-  letter-spacing: 0.25rem;
-}
-.hero__content {
-  width: 100%;
+.hero__content-main {
+  padding: 6rem 0 5rem;
   display: flex;
   flex-direction: column;
-  padding: 0 40px;
-  gap: 4rem;
+  gap: 1.5rem;
   overflow: hidden;
 }
-@media (min-width: 560px) {
-  .hero__content {
-    padding: 0 40px;
-  }
+.hero__content-btm {
+  display: flex;
+  justify-content: space-between;
 }
-@media (min-width: 1024px) {
-  .hero__content {
-    flex-direction: row-reverse;
-  }
-}
-.hero__img {
-  width: 100%;
-  margin-left: auto;
-  margin-right: -46px;
-}
-@media (min-width: 560px) {
-  .hero__img {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-@media (min-width: 1024px) {
-  .hero__img {
-    width: 300px;
-    height: calc(100vh - 80px);
-    margin: 0 0 0 auto;
-  }
-}
-.hero__img img {
-  width: 100%;
-  height: 420px;
-  border-radius: 10px;
-  object-fit: cover;
-  vertical-align: bottom;
-}
-@media (min-width: 1024px) {
-  .hero__img img {
-    height: 100%;
-  }
-}
-@media (min-width: 1024px) {
-  .hero__text-wrapper {
-    margin-top: 20rem;
-  }
+.hero .flexbox {
+  flex-direction: column;
 }
 .hero__title {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 300;
-  font-size: 1.3125rem;
-  line-height: 1.75;
-  color: #312d2b;
-  margin-bottom: 2rem;
-  letter-spacing: 0.25rem;
-}
-@media (min-width: 1024px) {
-  .hero__title {
-    font-size: 2rem;
-    margin-bottom: 4rem;
-  }
+  font-weight: 500;
+  font-size: 3rem;
+  color: #000000;
+  line-height: 1.5;
+  text-transform: capitalize;
+  letter-spacing: -1.92px;
+  text-align: center;
+  font-size: min(48px, 12vw);
 }
 .hero__text {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 0.875rem;
+  color: #000000;
   line-height: 1.75;
-  color: #312d2b;
-  margin-bottom: 2rem;
+  text-transform: capitalize;
 }
-
-.about {
-  width: 100%;
-  height: 100vh;
+.hero__text--light {
+  font-weight: 300;
+  font-size: 1rem;
+}
+.hero .red-circle {
+  margin: 0 auto;
+  aspect-ratio: 1/1;
+  width: min(77vw, 340px);
+  border-radius: 50%;
+  background-color: #fc3636;
   position: relative;
+  z-index: -1;
+  animation: showUp 1.5s ease-in-out forwards;
 }
-.about .box1 {
-  width: 200px;
-  height: 350px;
-  background-color: red;
-  position: absolute;
-  right: 0;
-  top: 10%;
+@keyframes showUp {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
-.about .box2 {
-  width: 200px;
-  height: 350px;
-  background-color: blue;
-  position: absolute;
-  left: 20%;
-  top: 30%;
-}
-
-.member {
-  width: 100%;
-  padding: 120px 20px;
-  background-color: #f7f7f7;
-  color: #312d2b;
-}
-.member__wrapper {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1280px;
-}
-.member__title {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 1.5rem;
-  line-height: 1.75;
-  margin-bottom: 4rem;
-}
-.member__list {
+.hero .hero-list {
   display: flex;
-  flex-direction: column;
+  gap: 0.5rem;
 }
-@media (min-width: 680px) {
-  .member__list {
-    flex-direction: row;
-    gap: 2rem;
-    justify-content: center;
-  }
-}
-.member__item {
-  width: 100%;
-  margin: 0 auto 3rem;
-  max-width: 500px;
-}
-@media (min-width: 680px) {
-  .member__item {
-    width: 45%;
-    max-width: none;
-    margin: 0;
-  }
-}
-.member .mt {
-  margin-top: 6rem;
-}
-.member__img {
-  margin-bottom: 1.5rem;
-}
-.member__img img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-}
-.member__name {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.75;
-  margin-bottom: 1rem;
-}
-.member__role {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.75;
-  color: #8b8b8b;
-  margin-bottom: 2rem;
-  letter-spacing: 0.05rem;
-}
-.member__desc {
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.75;
-  line-height: 2;
-}
-
-.company {
-  width: 100%;
-}
-.company__wrapper {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1280px;
-}
-.company .eyecatch {
-  width: 100%;
-  height: 680px;
-  overflow: hidden;
-  background-image: url("../image 28.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (min-width: 560px) {
-  .company .eyecatch {
-    height: 480px;
-  }
-}
-
-.contact {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-}
-
-.bg {
-  width: 100%;
-  background-color: #dad6cf;
-  padding-bottom: 2.5rem;
-}
-.bg__wrapper {
-  width: 100%;
-  padding: 0 16px;
-}
-.bg__img img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-@media (min-width: 560px) {
-  .bg__img img {
-    height: auto;
-  }
-}
-
-.footer {
-  width: 100%;
-  background-color: #dad6cf;
-}
-.footer__wrapper {
-  width: 100%;
-  margin: 0 auto;
-  padding: 16px 20px;
-}
-.footer__wrapper-top {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr auto;
-  grid-column-gap: 1rem;
-  margin-bottom: 10rem;
-}
-@media (min-width: 1024px) {
-  .footer__wrapper-top {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-  }
-}
-.footer__wrapper-top .footer__list-menu {
-  display: flex;
-  flex-direction: column;
-  grid-column-start: 1;
-  margin-bottom: 2.5rem;
-}
-.footer__wrapper-top .footer__list-lan {
-  display: flex;
-  flex-direction: column;
-  grid-column-start: 2;
-}
-.footer__wrapper-top .footer__mail {
-  font-family: "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #fc3636;
-  text-transform: uppercase;
-  grid-column-start: 1;
-  grid-row-start: 2;
-  font-size: min(4vw, 1rem);
-}
-@media (min-width: 1024px) {
-  .footer__wrapper-top .footer__mail {
-    text-align: right;
-    grid-column-start: 3;
-    grid-row-start: 1;
-  }
-}
-.footer__title {
-  font-family: "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #fc3636;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.footer .footer-list {
-  display: flex;
-  flex-direction: column;
-}
-.footer .footer-list__item {
+.hero .hero-list__item {
   list-style: none;
-  line-height: 0.75;
-  min-height: auto;
 }
-.footer .footer-list__link {
-  font-family: "Arial", sans-serif;
+.hero .hero-list__link {
+  font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #fc3636;
-  text-transform: uppercase;
-  text-decoration: none;
-  line-height: 1;
-}
-.footer .footer-list__link--policy {
-  font-weight: 600;
-  font-size: 14px;
-}
-.footer .policy {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.footer__copyright {
-  font-family: "Arial", sans-serif;
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.875rem;
-  color: #fc3636;
-  text-transform: uppercase;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  background-color: #f7f7f7;
-}
-
-h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  color: #000000;
+  line-height: 1.75;
+  text-decoration: none;
 }
 
 .intro__wrapper {
@@ -477,6 +133,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     font-style: normal;
     font-weight: 600;
     font-size: 6rem;
+    color: #000000;
     line-height: 1.5;
     color: #000000;
     letter-spacing: -10%;
@@ -488,6 +145,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-style: normal;
   font-weight: 600;
   font-size: 2rem;
+  color: #000000;
   line-height: 1.5;
   color: #000000;
   letter-spacing: -4%;
@@ -504,6 +162,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-style: normal;
   font-weight: 300;
   font-size: 1.5rem;
+  color: #000000;
   line-height: 1.75;
   color: #000000;
   margin-top: 1rem;
