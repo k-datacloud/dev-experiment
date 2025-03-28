@@ -16,6 +16,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   display: flex;
 }
 
+.divider {
+  width: 100%;
+  border-bottom: solid 1px #000000;
+}
+
 .header {
   width: 100%;
   padding: 20px;
@@ -238,6 +243,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 .hero .hero-list__item {
   list-style: none;
+  display: flex;
 }
 .hero .hero-list__link {
   font-family: "Inter", sans-serif;
@@ -258,6 +264,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   }
 }
 
+.intro {
+  width: 100%;
+  margin-bottom: 12rem;
+}
 .intro__wrapper {
   width: 100%;
   margin: 0 auto;
@@ -279,6 +289,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 .intro__number-pc {
   display: none;
@@ -299,11 +310,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .intro__title {
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 2rem;
   color: #000000;
   color: #000000;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   text-transform: capitalize;
 }
 .intro .dot {
@@ -316,12 +327,83 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.3125rem;
   color: #000000;
   color: #000000;
-  margin-top: 1rem;
   line-height: 1.7;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+.intro__text:last-child {
+  margin-bottom: 0;
+}
+.intro .divider {
+  margin: 2.5rem 0;
+}
+.intro .skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 0.5rem;
+}
+.intro .skill-list__item {
+  list-style: none;
+  border-radius: 20px;
+  border: solid 1px #000000;
+  padding: 8px 24px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #000000;
+  color: #000000;
+  letter-spacing: -0.04em;
+}
+
+.footer {
+  width: 100%;
+  height: 100vh;
+}
+.footer__wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.footer__menu-btm {
+  margin-top: auto;
+}
+.footer__title {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 3rem;
+  color: #000000;
+  color: #000000;
+  letter-spacing: -0.04em;
+  text-transform: capitalize;
+}
+.footer .footer-list {
+  display: flex;
+}
+.footer .footer-list__item {
+  list-style: none;
+}
+.footer .footer-list__link {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  color: #000000;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: -0.04em;
+}
+.footer .divider {
+  margin: 1.5rem 0;
 }
 
 /*# sourceMappingURL=style.css.map */

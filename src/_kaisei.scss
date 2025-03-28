@@ -52,6 +52,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     display: flex;
 }
 
+.divider {
+    width: 100%;
+    border-bottom: solid 1px #000000;
+}
+
 .header {
     width: 100%;
     padding: 20px;
@@ -266,6 +271,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         &__item {
             list-style: none;
+            display: flex;
         }
 
         &__link {
@@ -287,6 +293,8 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
 
 .intro {
+    width: 100%;
+    margin-bottom: calc(192/16 * 1rem);
 
     &__wrapper {
         width: 100%;
@@ -314,6 +322,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         display: flex;
         align-items: center;
         gap: .5rem;
+        margin-bottom: 2rem;
     }
 
     &__number-pc {
@@ -329,10 +338,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     &__title {
-        @include inter(32, 600);
+        @include inter(32, 500);
         color: #000000;
-        letter-spacing: -4%;
-        text-transform: capitalize;
+        letter-spacing: -0.04em;
+        text-transform: capitalize;   
     }
 
     .dot {
@@ -343,10 +352,80 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     &__text {
-        @include inter(24, 300);
+        @include inter(21, 300);
         color: #000000;
-        margin-top: 1rem;
         line-height: 1.7;
-        letter-spacing: -4%;
+        letter-spacing: -0.04em;
+        margin-bottom: calc(24/16 * 1rem);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .divider {
+        margin: calc(40/16 * 1rem) 0;
+    }
+
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        column-gap: .5rem;
+
+        &__item {
+            list-style: none;
+            border-radius: 20px;
+            border: solid 1px #000000;
+            padding: 8px 24px;
+            @include inter(16, 300);
+            color: #000000;
+            letter-spacing: -0.04em;
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 100vh;
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__menu-btm {
+        margin-top: auto;
+    }
+
+    &__title {
+        @include inter(48, 500);
+        color: #000000;
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+    }
+
+    .footer-list {
+        display: flex;
+
+        &__item {
+            list-style: none;
+        }
+        
+        &__link {
+            @include inter(14, 500);
+            color: #000000;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: -0.04em;
+        }
+    }
+
+    .divider {
+        margin: calc(24/16 * 1rem) 0;
     }
 }
