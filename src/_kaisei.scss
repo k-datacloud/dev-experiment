@@ -470,14 +470,38 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .footer {
     width: 100%;
     height: 100vh;
+    background-color: #fc3636;
 
     &__wrapper {
         width: 100%;
         height: 100%;
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 80px 20px 40px;
         display: flex;
         flex-direction: column;
+
+        @include respond-to(medium) {
+            padding: 80px 40px 40px;
+        }
+    }
+
+    &__content {
+        height: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        gap: calc(320/16 * 1rem);
+
+        @include respond-to(medium) {
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
+
+    &__menu {
+
+        @include respond-to(medium) {
+            padding-bottom: calc(40/16 * 1rem);
+        }
     }
 
     &__menu-btm {
@@ -485,10 +509,30 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     &__title {
-        @include inter(48, 500);
-        color: #000000;
+        @include inter(68, 500);
+        font-size: min(80px, 17.43vw);
+        color: #ffffff;
         letter-spacing: -0.04em;
         text-transform: capitalize;
+
+        @include respond-to(medium) {
+            font-size: min(120px, 12vw);
+        }
+    }
+
+    &__text {
+        display: block;
+        @include inter(32, 400);
+        font-size: min(32px, 8.21vw);
+        color: #ffffff;
+        line-height: 1.5;
+        letter-spacing: -0.04em;
+        text-decoration: none;
+        text-align: right;
+
+        @include respond-to(lg) {
+            font-size: calc(40/16 * 1rem);
+        }
     }
 
     .footer-list {
@@ -499,15 +543,46 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         }
         
         &__link {
-            @include inter(14, 500);
-            color: #000000;
+            @include inter(24, 400);
+            font-size: min(24px, 6.15vw);
+            color: #ffffff;
             text-decoration: none;
             text-transform: capitalize;
             letter-spacing: -0.04em;
+            opacity: 1;
+            transition: opacity .2s ease-in-out;
+
+            @include respond-to(lg) {
+                font-size: calc(32/16 * 1rem);
+            }
+
+            &--small {
+                font-size: calc(14/16 * 1rem);
+                font-weight: 500;
+
+                @include respond-to(lg) {
+                    font-size: 1rem;
+                }
+            }
+
+            &:hover {
+                opacity: .5;
+            }
+        }
+
+        &--end {
+            justify-content: flex-end;
+            margin-top: calc(24/16 * 1rem);
+            gap: calc(24/16 * 1rem);
         }
     }
 
     .divider {
-        margin: calc(24/16 * 1rem) 0;
+        margin-bottom: calc(24/16 * 1rem);
+        border-bottom: solid 1px #ffffff;
+
+        @include respond-to(medium) {
+            margin-bottom: calc(40/16 * 1rem);
+        }
     }
 }
