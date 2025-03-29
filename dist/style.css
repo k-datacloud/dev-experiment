@@ -340,7 +340,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
 .intro {
   width: 100%;
-  margin-bottom: 12rem;
+  margin-bottom: 7.5rem;
+}
+@media (min-width: 1024px) {
+  .intro {
+    margin-bottom: 15rem;
+  }
 }
 .intro__wrapper {
   width: 100%;
@@ -391,6 +396,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   letter-spacing: -0.04em;
   text-transform: capitalize;
 }
+@media (min-width: 1024px) {
+  .intro__title {
+    font-size: 2.5rem;
+  }
+}
 .intro .dot {
   width: 10px;
   height: 10px;
@@ -418,6 +428,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 .intro .divider {
   margin: 2.5rem 0;
+}
+@media (min-width: 1024px) {
+  .intro .divider {
+    margin: 5rem 0;
+  }
 }
 .intro .skill-list {
   display: flex;
@@ -489,6 +504,29 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .footer__menu-btm {
   margin-top: auto;
 }
+.footer .footer-title-group {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer .footer-title-group {
+    display: flex;
+    overflow: hidden;
+  }
+}
+.footer .footer-title-group__inner {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 20px;
+  animation: text-move 12s linear infinite;
+}
+@keyframes text-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 .footer__title {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -501,12 +539,27 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   text-transform: capitalize;
 }
 @media (min-width: 768px) {
-  .footer__title {
-    font-size: min(120px, 12vw);
+  .footer__title--sp {
+    display: none;
+  }
+  .footer__title--pc {
+    display: block;
+    white-space: nowrap;
+    font-size: min(140px, 14vw);
+  }
+  @keyframes text-move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
 }
 .footer__text {
-  display: block;
+  text-align: right;
+}
+.footer__text--mail {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -517,11 +570,15 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   line-height: 1.5;
   letter-spacing: -0.04em;
   text-decoration: none;
-  text-align: right;
 }
 @media (min-width: 1024px) {
-  .footer__text {
+  .footer__text--mail {
     font-size: 2.5rem;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .footer__text--mail:hover {
+    opacity: 0.5;
   }
 }
 .footer .footer-list {

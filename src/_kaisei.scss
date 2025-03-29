@@ -362,7 +362,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
 .intro {
     width: 100%;
-    margin-bottom: calc(192/16 * 1rem);
+    margin-bottom: calc(120/16 * 1rem);
+
+    @include respond-to(lg) {
+        margin-bottom: calc(240/16 * 1rem);
+    }
 
     &__wrapper {
         width: 100%;
@@ -409,7 +413,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         @include inter(32, 500);
         color: #000000;
         letter-spacing: -0.04em;
-        text-transform: capitalize;   
+        text-transform: capitalize;
+
+        @include respond-to(lg) {
+            font-size: calc(40/16 * 1rem);
+        }
     }
 
     .dot {
@@ -437,6 +445,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     .divider {
         margin: calc(40/16 * 1rem) 0;
+
+        @include respond-to(lg) {
+            margin: calc(80/16 * 1rem) 0;
+        }
     }
 
     .skill-list {
@@ -508,6 +520,31 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         margin-top: auto;
     }
 
+    .footer-title-group {
+        display: none;
+
+        @include respond-to(medium) {
+            display: flex;
+            overflow: hidden;
+        }
+
+        &__inner {
+            display: flex;
+            gap: calc(24/16 * 1rem);
+            padding: 0 20px;
+            animation: text-move 12s linear infinite;
+
+            @keyframes text-move {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+        }
+    }
+
     &__title {
         @include inter(68, 500);
         font-size: min(80px, 17.43vw);
@@ -516,22 +553,52 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         text-transform: capitalize;
 
         @include respond-to(medium) {
-            font-size: min(120px, 12vw);
+            
+            &--sp {
+                display: none;
+            }
+
+            &--pc {
+                display: block;
+                white-space: nowrap;
+                font-size: min(140px, 14vw);
+                // animation: text-move 12s linear infinite;
+            }
+
+            @keyframes text-move {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
         }
+
+
     }
 
     &__text {
-        display: block;
-        @include inter(32, 400);
-        font-size: min(32px, 8.21vw);
-        color: #ffffff;
-        line-height: 1.5;
-        letter-spacing: -0.04em;
-        text-decoration: none;
         text-align: right;
+        
+        &--mail {
+            @include inter(32, 400);
+            font-size: min(32px, 8.21vw);
+            color: #ffffff;
+            line-height: 1.5;
+            letter-spacing: -0.04em;
+            text-decoration: none;
 
-        @include respond-to(lg) {
-            font-size: calc(40/16 * 1rem);
+            @include respond-to(lg) {
+                font-size: calc(40/16 * 1rem);
+                opacity: 1;
+                transition: opacity .2s ease-in-out;
+
+                &:hover {
+                    opacity: .5;
+                }
+
+            }
         }
     }
 
