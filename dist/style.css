@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   box-sizing: border-box;
 }
 
-.flexbox {
+.flex-container {
   display: flex;
 }
 
@@ -38,6 +38,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 .header__logo {
   display: flex;
+  white-space: nowrap;
 }
 .header__title {
   font-family: "Inter", sans-serif;
@@ -47,6 +48,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   color: #000000;
   text-transform: capitalize;
   text-decoration: none;
+  letter-spacing: -0.04em;
+}
+@media (min-width: 1024px) {
+  .header__title {
+    font-size: 1rem;
+  }
 }
 .header__nav {
   width: 100%;
@@ -63,6 +70,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     height: auto;
     position: static;
     opacity: 1;
+    z-index: 1;
   }
 }
 .header__list-sp {
@@ -96,6 +104,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   color: #000000;
   text-transform: capitalize;
   text-decoration: none;
+}
+@media (min-width: 1024px) {
+  .header .header-list__link {
+    font-size: 1rem;
+  }
 }
 .header .header-list__link--red {
   display: block;
@@ -132,7 +145,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   height: 100%;
   margin: 0 auto;
   padding: 0 20px;
-  grid-template-rows: auto auto;
 }
 @media (min-width: 1024px) {
   .hero__wrapper {
@@ -142,6 +154,9 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   }
 }
 .hero__content-main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
   padding: 4rem 0 5rem;
   display: flex;
   flex-direction: column;
@@ -150,9 +165,13 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 @media (min-width: 768px) {
   .hero__content-main {
-    width: 88.8888888889%;
-    margin: 0 auto;
+    width: 85vw;
     flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+@media (min-width: 1024px) {
+  .hero__content-main {
     padding: 12.5rem 0 0;
   }
 }
@@ -160,14 +179,20 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   display: flex;
   justify-content: space-between;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hero__content-btm {
     margin-top: auto;
     padding-bottom: 40px;
   }
 }
-.hero .flexbox {
+.hero .flex-container {
   flex-direction: column;
+  gap: 4rem;
+}
+.hero__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .hero__title {
   font-family: "Inter", sans-serif;
@@ -176,13 +201,14 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-size: 3rem;
   color: #000000;
   text-transform: capitalize;
-  letter-spacing: -1.92px;
+  letter-spacing: -0.04em;
   text-align: center;
   font-size: min(48px, 12vw);
 }
 @media (min-width: 1024px) {
   .hero__title {
-    font-size: 5.625rem;
+    font-size: 5rem;
+    text-align: left;
   }
 }
 .hero__text {
@@ -192,6 +218,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-size: 0.875rem;
   color: #000000;
   text-transform: capitalize;
+  letter-spacing: -0.04em;
 }
 @media (min-width: 1024px) {
   .hero__text {
@@ -215,19 +242,34 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   .hero__text--light-pc {
     display: block;
     font-weight: 300;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.125rem;
   }
+}
+.hero__text--button {
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 400;
+  transition: color 0.3s ease-in-out;
 }
 .hero .red-circle {
   margin: 0 auto;
   aspect-ratio: 1/1;
-  width: min(77vw, 340px);
+  width: min(76.9vw, 340px);
   border-radius: 50%;
   background-color: #fc3636;
   position: relative;
   z-index: -1;
   animation: showUp 1.5s ease-in-out forwards;
+}
+@media (min-width: 768px) {
+  .hero .red-circle {
+    margin: 0 0 0 auto;
+  }
+}
+@media (min-width: 1024px) {
+  .hero .red-circle {
+    width: 400px;
+  }
 }
 @keyframes showUp {
   0% {
@@ -261,6 +303,38 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   }
   .hero .hero-list__link:hover {
     opacity: 0.5;
+  }
+}
+.hero .button {
+  display: none;
+  width: 200px;
+  height: 50px;
+  border-radius: 40px;
+  border: none;
+  background-color: #fc3636;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000000;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+}
+@media (min-width: 1024px) {
+  .hero .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, border 0.3s ease-in-out;
+  }
+  .hero .button:hover {
+    background-color: #ffffff;
+    border: solid 1px #fc3636;
+  }
+  .hero .button:hover .hero__text--button {
+    color: #fc3636;
   }
 }
 
@@ -330,9 +404,14 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-size: 1.3125rem;
   color: #000000;
   color: #000000;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: -0.04em;
   margin-bottom: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .intro__text {
+    font-size: 1.5rem;
+  }
 }
 .intro__text:last-child {
   margin-bottom: 0;
@@ -346,6 +425,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   row-gap: 1rem;
   column-gap: 0.5rem;
 }
+@media (min-width: 1024px) {
+  .intro .skill-list {
+    column-gap: 1rem;
+    row-gap: 2rem;
+  }
+}
 .intro .skill-list__item {
   list-style: none;
   border-radius: 20px;
@@ -358,6 +443,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   color: #000000;
   color: #000000;
   letter-spacing: -0.04em;
+}
+@media (min-width: 1024px) {
+  .intro .skill-list__item {
+    font-size: 1.3125rem;
+    padding: 8px 32px;
+  }
 }
 
 .footer {
