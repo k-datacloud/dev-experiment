@@ -419,8 +419,8 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     .dot {
-        width: 10px;
-        height: 10px;
+        width: 7px;
+        aspect-ratio: 1/1;
         background-color: #000000;
         border-radius: 50%;
     }
@@ -547,7 +547,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     &__title {
         @include inter(68, 500);
-        font-size: min(140px, 14.43vw);
+        font-size: min(140px, 18.43vw);
         color: #ffffff;
         letter-spacing: -0.04em;
         text-transform: capitalize;
