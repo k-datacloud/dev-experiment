@@ -104,6 +104,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   color: #000000;
   text-transform: capitalize;
   text-decoration: none;
+  letter-spacing: -0.04em;
 }
 @media (min-width: 1024px) {
   .header .header-list__link {
@@ -113,9 +114,9 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .header .header-list__link--red {
   display: block;
   color: #fc3636;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  letter-spacing: -1.12px;
+  letter-spacing: -0.04em;
 }
 .header .menu-btn {
   font-family: "Inter", sans-serif;
@@ -124,6 +125,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-size: 0.875rem;
   color: #000000;
   text-transform: capitalize;
+  letter-spacing: -0.04em;
 }
 @media (min-width: 1024px) {
   .header .menu-btn {
@@ -214,7 +216,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .hero__text {
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.875rem;
   color: #000000;
   text-transform: capitalize;
@@ -274,7 +276,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 .hero__link {
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.875rem;
   color: #000000;
   text-decoration: none;
