@@ -242,10 +242,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         text-transform: capitalize;
         letter-spacing: -0.04em;
 
-        @include respond-to(lg) {
-            font-size: 1rem;
-        }
-
         &--light {
             font-weight: 300;
             font-size: min(1rem, 4vw);
@@ -256,13 +252,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             }
         }
 
-        &--light-pc {
+        &--pc {
             display: none;
 
             @include respond-to(lg) {
                 display: block;
-                font-weight: 300;
-                font-size: calc(18/16 * 1rem);
             }
         }
 
@@ -271,6 +265,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             color: #ffffff;
             font-weight: 400;
             transition: color 0.3s ease-in-out;
+        }
+
+        &--mg {
+            margin: 0 calc(2/16 * 1rem);
         }
     }
 
@@ -286,10 +284,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         @include respond-to(medium) {
             margin: 0 0 0 auto;
-        }
-
-        @include respond-to(lg) {
-            width: 400px;
+            width: min(30.77vw, 400px);
         }
 
         @keyframes showUp {
@@ -303,28 +298,29 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     }
 
+    &__link {
+        @include inter(14, 500);
+        text-decoration: none;
+        text-transform: capitalize;
+        letter-spacing: -0.04em;
+
+        @include respond-to(lg) {
+            opacity: 1;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+
     .hero-list {
+        width: 100%;
         display: flex;
-        gap: .5rem;
+        justify-content: space-between;
 
         &__item {
             list-style: none;
-            display: flex;
-        }
-
-        &__link {
-            @include inter(14, 500);
-            text-decoration: none;
-
-            @include respond-to(lg) {
-                font-size: 1rem;
-                opacity: 1;
-                transition: opacity 0.3s;
-
-                &:hover {
-                    opacity: 0.5;
-                }
-            }
         }
     }
 
@@ -488,12 +484,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         width: 100%;
         height: 100%;
         margin: 0 auto;
-        padding: 80px 20px 40px;
+        padding: 120px 20px 40px;
         display: flex;
         flex-direction: column;
 
         @include respond-to(medium) {
-            padding: 80px 40px 40px;
+            padding: 120px 40px 40px;
         }
     }
 
@@ -521,12 +517,14 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     .footer-title-group {
-        display: none;
+        // display: none;
+        display: flex;
+        overflow: hidden;
 
-        @include respond-to(medium) {
-            display: flex;
-            overflow: hidden;
-        }
+        // @include respond-to(medium) {
+        //     display: flex;
+        //     overflow: hidden;
+        // }
 
         &__inner {
             display: flex;
@@ -547,58 +545,64 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     &__title {
         @include inter(68, 500);
-        font-size: min(80px, 17.43vw);
+        font-size: min(140px, 14.43vw);
         color: #ffffff;
         letter-spacing: -0.04em;
         text-transform: capitalize;
-
-        @include respond-to(medium) {
-            
-            &--sp {
-                display: none;
-            }
-
-            &--pc {
-                display: block;
-                white-space: nowrap;
-                font-size: min(140px, 14vw);
-                // animation: text-move 12s linear infinite;
-            }
-
-            @keyframes text-move {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
-        }
-
-
+        white-space: nowrap;
     }
 
     &__text {
         text-align: right;
-        
+
+        &--small {
+            @include inter(12, 400);
+            color: #ffffff;
+            text-transform: capitalize;
+            letter-spacing: -0.04em;
+
+            @include respond-to(lg) {
+                font-size: calc(14/16 * 1rem);
+            }
+        }
+    }
+
+    &__link {
+        @include inter(24, 400);
+        font-size: min(24px, 6.15vw);
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: capitalize;
+        letter-spacing: -0.04em;
+        opacity: 1;
+        transition: opacity .2s ease-in-out;
+
+        @include respond-to(lg) {
+            font-size: calc(32/16 * 1rem);
+        }
+
+        &--small {
+            font-size: calc(14/16 * 1rem);
+            font-weight: 500;
+
+            @include respond-to(lg) {
+                font-size: 1rem;
+            }
+        }
+
         &--mail {
             @include inter(32, 400);
             font-size: min(32px, 8.21vw);
             color: #ffffff;
             line-height: 1.5;
-            letter-spacing: -0.04em;
-            text-decoration: none;
 
             @include respond-to(lg) {
                 font-size: calc(40/16 * 1rem);
-                opacity: 1;
-                transition: opacity .2s ease-in-out;
-
-                &:hover {
-                    opacity: .5;
-                }
-
             }
+        }
+
+        &:hover {
+            opacity: .5;
         }
     }
 
@@ -608,39 +612,16 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         &__item {
             list-style: none;
         }
-        
-        &__link {
-            @include inter(24, 400);
-            font-size: min(24px, 6.15vw);
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: capitalize;
-            letter-spacing: -0.04em;
-            opacity: 1;
-            transition: opacity .2s ease-in-out;
-
-            @include respond-to(lg) {
-                font-size: calc(32/16 * 1rem);
-            }
-
-            &--small {
-                font-size: calc(14/16 * 1rem);
-                font-weight: 500;
-
-                @include respond-to(lg) {
-                    font-size: 1rem;
-                }
-            }
-
-            &:hover {
-                opacity: .5;
-            }
-        }
 
         &--end {
             justify-content: flex-end;
             margin-top: calc(24/16 * 1rem);
             gap: calc(24/16 * 1rem);
+        }
+
+        &--between {
+            justify-content: space-between;
+            align-items: center;
         }
     }
 
