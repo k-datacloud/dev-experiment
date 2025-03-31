@@ -64,3 +64,37 @@ window.addEventListener('scroll', () => {
     }
     
 });
+
+const langSwitch = document.querySelectorAll('.hero__text--switch');
+const introTitle = document.querySelectorAll('.intro__title');
+const introText = document.querySelectorAll('.intro__text');
+
+for (let index = 0; index < langSwitch.length; index++) {
+    langSwitch[index].addEventListener('click', () => {
+
+        if (langSwitch[index].textContent.trim() === 'ja') {
+            langSwitch[index].classList.add('active-lang');
+            langSwitch[index - 1].classList.remove('active-lang');
+            introTitle.forEach((title) => {
+                title.textContent = title.getAttribute('data-jp');
+                title.classList.add('intro__title--jp');
+            })
+            introText.forEach((text) => {
+                text.textContent = text.getAttribute('data-jp');
+                text.classList.add('intro__text--jp');
+            })
+        } else {
+            langSwitch[index].classList.add('active-lang');
+            langSwitch[index + 1].classList.remove('active-lang'); 
+            introTitle.forEach((title) => {
+                title.textContent = title.getAttribute('data-en');
+                title.classList.remove('intro__title--jp');
+            })
+            introText.forEach((text) => {
+                text.textContent = text.getAttribute('data-en');
+                text.classList.remove('intro__text--jp');
+            })
+        }
+
+    });
+}

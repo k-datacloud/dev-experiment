@@ -6,16 +6,15 @@
     color: #000000;
 }
 
-@mixin arial($size, $weight) {
-    font-family: "Arial", sans-serif;
-    font-style: normal;
+@mixin notojp($size, $weight) {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
     font-weight: $weight;
+    font-style: normal;
     font-size: calc($size / 16 * 1rem);
-    color: #fc3636;
 }
 
 $breakpoints: (
-    sm: 560px,
     medium: 768px,
     lg: 1024px,
 );
@@ -237,6 +236,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             font-size: calc(80/16 * 1rem);
             text-align: left;
         }
+        
     }
 
     &__text {
@@ -259,6 +259,16 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
             @include respond-to(lg) {
                 display: block;
+                font-size: calc(18/16 * 1rem);
+            }
+        }
+
+        &--pc-small {
+            display: none;
+
+            @include respond-to(lg) {
+                display: block;
+                font-size: calc(14/16 * 1rem);
             }
         }
 
@@ -269,9 +279,22 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             transition: color 0.3s ease-in-out;
         }
 
-        &--mg {
+        &--switch {
             margin: 0 calc(2/16 * 1rem);
+
+            @include respond-to(lg) {
+                margin: calc(4/16 * 1rem);
+                cursor: pointer;
+            }
         }
+    }
+
+    .active-lang {
+        text-decoration: line-through;
+    }
+
+    .inactive-lang {
+        text-decoration: none;
     }
 
     .red-circle {
@@ -376,7 +399,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         @include respond-to(lg) {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 250px 1fr;
             gap: calc(20/16 * 1rem);
         }
     }
@@ -385,6 +408,8 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         @include respond-to(lg) {
             grid-column-start: 2;
+            max-width: 700px;
+            margin-left: auto;
         }
     }
 
@@ -400,21 +425,24 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         @include respond-to(lg) {
             display: block;
-            @include inter(96, 600);
-            color: #000000;
-            letter-spacing: -10%;
+            @include inter(120, 600);
+            font-size: min(120px, 11.43vw);
+            letter-spacing: -0.04em;
             text-transform: capitalize;
         }
     }
 
     &__title {
-        @include inter(32, 500);
-        color: #000000;
+        @include inter(32, 400);
         letter-spacing: -0.04em;
         text-transform: capitalize;
 
         @include respond-to(lg) {
             font-size: calc(40/16 * 1rem);
+        }
+
+        &--jp {
+            @include notojp(32, 400)
         }
     }
 
@@ -438,6 +466,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
         &:last-child {
             margin-bottom: 0;
+        }
+
+        &--jp {
+            @include notojp(18, 300);
+            text-align: justify;
+            line-height: 2;
         }
     }
 
