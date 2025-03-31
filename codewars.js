@@ -66,33 +66,46 @@ window.addEventListener('scroll', () => {
 });
 
 const langSwitch = document.querySelectorAll('.c-lang-toggle');
-const titles = document.querySelectorAll('.l-translate-title');
-const texts = document.querySelectorAll('.l-translate-text');
-
+const introTitles = document.querySelectorAll('.intro__title');
+const introTexts = document.querySelectorAll('.intro__text');
+const showcaseTitles = document.querySelectorAll('.p-single-showcase__title--small');
+const showcaseTexts = document.querySelectorAll('.p-single-showcase__text');
 for (let index = 0; index < langSwitch.length; index++) {
     langSwitch[index].addEventListener('click', () => {
 
         if (langSwitch[index].textContent.trim() === 'ja') {
             langSwitch[index].classList.add('active-lang');
             langSwitch[index - 1].classList.remove('active-lang');
-            titles.forEach((title) => {
+            introTitles.forEach((title) => {
                 title.textContent = title.getAttribute('data-jp');
-                title.classList.add('l-translate-title--jp');
+                title.classList.add('intro__title--jp');
             })
-            texts.forEach((text) => {
+            introTexts.forEach((text) => {
                 text.textContent = text.getAttribute('data-jp');
-                text.classList.add('l-translate-text--jp');
+                text.classList.add('intro__text--jp');
+            })
+            showcaseTitles.forEach((title) => {
+                title.textContent = title.getAttribute('data-jp');
+                title.classList.add('p-single-showcase__title--jp');
+            })
+            showcaseTexts.forEach((text) => {
+                text.textContent = text.getAttribute('data-jp');
+                text.classList.add('p-single-showcase__text--jp');
             })
         } else {
             langSwitch[index].classList.add('active-lang');
             langSwitch[index + 1].classList.remove('active-lang'); 
-            titles.forEach((title) => {
+            introTitles.forEach((title) => {
                 title.textContent = title.getAttribute('data-en');
-                title.classList.remove('l-translate-title--jp');
+                title.classList.remove('intro__title--jp');
             })
-            texts.forEach((text) => {
+            introTexts.forEach((text) => {
                 text.textContent = text.getAttribute('data-en');
-                text.classList.remove('l-translate-text--jp');
+                text.classList.remove('intro__text--jp');
+            })
+            showcaseTexts.forEach((text) => {
+                text.textContent = text.getAttribute('data-en');
+                text.classList.remove('p-single-showcase__text--jp');
             })
         }
 

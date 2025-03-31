@@ -56,13 +56,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     border-bottom: solid 1px #000000;
 }
 
-.l-translate-title {
-
-    &--jp {
-        @include notojp(16, 500);
-    }
-}
-
 .header {
     width: 100%;
     padding: 20px;
@@ -571,6 +564,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             }
         }
 
+        &__body {
+            width: 61.4vw;
+            margin-left: auto;
+        }
+
         &__title-wrapper {
             display: flex;
             align-items: center;
@@ -599,12 +597,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     &__text {
-        width: 61.5vw;
         @include inter(15, 300);
         font-size: min(18px, 3.84vw);
         letter-spacing: -0.04em;
         line-height: 1.7;
-        margin: 0 0 calc(24/16 * 1rem) auto;
+        margin-bottom: calc(24/16 * 1rem);
 
         @include respond-to(medium) {
             width: 100%;
@@ -619,6 +616,22 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             @include notojp(15, 300);
             letter-spacing: 0;
             line-height: 2;
+        }
+
+        &--switch {
+            width: auto;
+            @include inter(14, 300);
+            text-transform: capitalize;
+
+            @include respond-to(lg) {
+                font-size: calc(16/16 * 1rem);
+                opacity: 1;
+                transition: opacity .3s ease-in-out;
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
         }
     }
 
@@ -642,6 +655,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         justify-content: flex-end;
         gap: calc(8/16 * 1rem);
 
+        @include respond-to(lg) {
+            gap: 1rem;
+        }
+
         &__item {
             list-style: none;
             border-radius: 20px;
@@ -650,6 +667,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             @include inter(16, 300);
             letter-spacing: -0.04em;
             text-transform: capitalize;
+
+            @include respond-to(lg) {
+                font-size: calc(21/16 * 1rem);
+                padding: 8px 32px;
+            }
         }
     }
 
@@ -664,6 +686,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     .divider {
         margin: calc(40/16 * 1rem) 0;
+    }
+
+    .active-lang {
+        text-decoration: line-through;
     }
 }
 
