@@ -130,6 +130,7 @@ for (let index = 0; index < langSwitch.length; index++) {
 
 
 // menuBtn
+
 const menuBtn = document.querySelector('.menu-btn');
 const headerNav = document.querySelector('.header__nav');
 

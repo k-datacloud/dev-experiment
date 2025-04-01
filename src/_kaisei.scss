@@ -72,18 +72,48 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     &__logo {
-        display: flex;
         white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+
+        @include respond-to(lg) {
+            
+            &:hover .header__title--move {
+                transform: translateY(-100%);
+            }
+
+            &:hover .header__title--hover {
+                top: 0;
+            }
+        }
     }
 
     &__title {
         @include inter(14, 500);
+        display: block;
         text-transform: capitalize;
         text-decoration: none;
         letter-spacing: -0.04em;
 
         @include respond-to(lg) {
             font-size: 1rem;
+        }
+
+        &--move {
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+
+        &--hover {
+            display: none;
+
+            @include respond-to(lg) {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 0;
+                transition: top 0.3s;
+            }
         }
     }
 
@@ -96,19 +126,21 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         background-color: #ffffff;
 
         @include respond-to(lg) {
+            width: auto;
             height: auto;
             position: static;
+            background-color: transparent;
         }
     }
 
     .menu-active {
-        transition: opacity 0.7s, z-index 0.7s ease-in-out;
+        transition: opacity 0.7s ease-in-out;
         opacity: 1;
         z-index: 999;
     }
 
     .menu-close {
-        transition: opacity 0.3s, z-index 0.3s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
         z-index: -1;
         opacity: 0;
 
@@ -143,14 +175,48 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     .header-list {
 
+        &__item {
+            position: relative;
+            overflow: hidden;
+
+            @include respond-to(lg) {
+
+                &:hover .header-list__link--move {
+                    transform: translateY(-100%);
+                }
+    
+                &:hover .header-list__link--hover {
+                    top: 0;
+                }
+            }
+        }
+
         &__link {
             @include inter(14, 500);
+            display: block;
             text-transform: capitalize;
             text-decoration: none;
             letter-spacing: -0.04em;
 
             @include respond-to(lg) {
                 font-size: 1rem;
+            }
+
+            &--move {
+                transform: translateY(0);
+                transition: transform 0.3s;
+            }
+    
+            &--hover {
+                display: none;
+    
+                @include respond-to(lg) {
+                    display: block;
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                    transition: top 0.3s;
+                }
             }
 
             &--red {
@@ -167,21 +233,20 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         @include inter(14, 500);
         text-transform: capitalize;
         letter-spacing: -0.04em;
-        position: relative;
-        z-index: 0;
-
-        &--close {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            color: #fc3636;
-        }
 
         @include respond-to(lg) {
             display: none;
         }
+
+        &--close {
+            color: #fc3636;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
     }
+    
 }
 
 .hero {
@@ -400,6 +465,134 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
                 color: #fc3636;
             }
         }
+    }
+}
+
+.p-top-showcase {
+    width: 100%;
+
+    &__wrapper {
+        width: 100%;
+        padding: 0 20px calc(160/16 * 1rem);
+
+        @include respond-to(lg) {
+            padding: 0 40px calc(280/16 * 1rem);
+        }
+    }
+
+    &__list {
+        width: 100%;
+    }
+
+    .p-top-showcase-list {
+        display: flex;
+        flex-direction: column;
+        gap: calc(80/16 * 1rem);
+
+        @include respond-to(lg) {
+            gap: calc(256/16 * 1rem);
+        }
+
+        &__item {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: calc(24/16 * 1rem);
+
+            @include respond-to(medium) {
+                width: calc(1220/1440 * 100vw);
+                max-width: none;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        &__body {
+
+            @include respond-to(medium) {
+                width: calc(432/1440 * 100vw);
+                max-width: 432px;
+            }
+        }
+
+        &__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+    
+            @include respond-to(medium) {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+    }
+
+    &__title {
+        @include inter(21, 400);
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+
+        @include respond-to(medium) {
+            font-size: calc(32/16 * 1rem);
+            font-size: min(48px, calc(48/1440 * 100vw));
+            margin-bottom: calc(8/16 * 1rem);
+        }
+    }
+
+    &__text {
+
+        &--pc {
+            display: none;
+
+            @include respond-to(medium) {
+                display: block;
+                @include inter(18, 300);
+                margin-bottom: calc(64/16 * 1rem);
+            }
+        }
+    }
+
+    &__link {
+        @include inter(14, 400);
+        text-decoration: none;
+        text-transform: capitalize;
+        letter-spacing: -0.04em;
+    }
+
+    &__img {
+        display: block;
+        overflow: hidden;
+
+        @include respond-to(medium) {
+            width: calc(600/1440 * 100vw);
+            max-width: 600px;
+        }
+
+        @include respond-to(lg) {
+            overflow: hidden;
+        }
+        
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+
+            @include respond-to(lg) {
+                scale: 1;
+                transition: scale 0.3s ease-in-out;
+
+                &:hover {
+                    scale: 1.1;
+                }
+            }
+        }
+    }
+
+    .divider {
+        margin-top: 1rem;
     }
 }
 
@@ -766,20 +959,14 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     .footer-title-group {
-        // display: none;
         display: flex;
         overflow: hidden;
-
-        // @include respond-to(medium) {
-        //     display: flex;
-        //     overflow: hidden;
-        // }
 
         &__inner {
             display: flex;
             gap: calc(24/16 * 1rem);
             padding: 0 20px;
-            animation: text-move 12s linear infinite;
+            animation: text-move 15s linear infinite;
 
             @keyframes text-move {
                 0% {
@@ -794,7 +981,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     &__title {
         @include inter(68, 500);
-        font-size: min(140px, 18.43vw);
+        font-size: min(180px, 18.43vw);
         color: #ffffff;
         letter-spacing: -0.04em;
         text-transform: capitalize;
