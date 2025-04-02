@@ -252,6 +252,14 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             z-index: 999;
         }
     }
+
+    .c-scroll-text--inactive {
+        color: #000000;
+    }
+
+    .c-scroll-text--active {
+        color: #ffffff;
+    }
     
 }
 

@@ -83,3 +83,31 @@ menuBtn.addEventListener('click', () => {
         menuBtn.classList.remove('menu-btn--close');
     }
 })
+
+window.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('.footer');
+    const headerTitle = document.querySelectorAll('.header__title');
+    const footerHeight = footer.getBoundingClientRect().top + window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= ( footerHeight - 20 ) ) {
+            headerTitle.forEach((title) => {
+                title.classList.remove('c-scroll-text--inactive');
+                title.classList.add('c-scroll-text--active');
+                console.log(window.scrollY);
+                console.log(footerHeight);
+                
+                console.log("きたよ");
+                
+            })
+        } else {
+            headerTitle.forEach((title) => {
+                title.classList.remove('c-scroll-text--active');
+                title.classList.add('c-scroll-text--inactive');
+                console.log("まだだよ");
+                
+            })
+        }
+    })
+    
+})

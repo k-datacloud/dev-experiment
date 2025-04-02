@@ -214,6 +214,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   right: 20px;
   z-index: 999;
 }
+.header .c-scroll-text--inactive {
+  color: #000000;
+}
+.header .c-scroll-text--active {
+  color: #ffffff;
+}
 
 .hero {
   width: 100%;
