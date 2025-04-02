@@ -65,27 +65,37 @@ window.addEventListener('scroll', () => {
 });
 
 //scroll
-const contactElement = document.querySelector('.contact');
-const textAbusolute = document.querySelector('.scrollcount__text--absolute-num');
-const textRelative = document.querySelector('.scrollamount');
-const contactElementHeight = contactElement.getBoundingClientRect().top + window.scrollY;
+const contactElements = document.querySelectorAll('.divider');
+const textAbusolutes = document.querySelectorAll('.scrollcount__text--absolute-num');
+const textRelatives = document.querySelectorAll('.scrollamount');
 
-window.addEventListener('scroll', () => {
-    let scrollAmount = window.scrollY;
-    textAbusolute.textContent = Math.round(contactElementHeight);
-    textRelative.textContent = Math.round(scrollAmount);
-    console.log(contactElementHeight);
-    console.log(scrollAmount);
 
-    if ( scrollAmount >= ( contactElementHeight - 170 ) ) {
-        textAbusolute.classList.add('active');
-        textRelative.classList.add('active');
-        contactElement.classList.add('active');
-    } else {
-        console.log("false");
+    
+
+        window.addEventListener('scroll', () => {
+            contactElements.forEach((contactElement, index) => {
+                const contactElementHeight = contactElement.getBoundingClientRect().top + window.scrollY;
+                textAbusolutes[index].textContent = Math.round(contactElementHeight);
+                textRelatives[index].textContent = Math.round(window.scrollY);
+            })
+        })
+
+// window.addEventListener('scroll', () => {
+//     let scrollAmount = window.scrollY;
+//     textAbusolute.textContent = Math.round(contactElementHeight);
+//     textRelative.textContent = Math.round(scrollAmount);
+//     console.log(contactElementHeight);
+//     console.log(scrollAmount);
+
+//     if ( scrollAmount >= ( contactElementHeight - 170 ) ) {
+//         textAbusolute.classList.add('active');
+//         textRelative.classList.add('active');
+//         contactElement.classList.add('active');
+//     } else {
+//         console.log("false");
         
-        textAbusolute.classList.remove('active');
-        textRelative.classList.remove('active');
-        contactElement.classList.remove('active');
-    }
-})
+//         textAbusolute.classList.remove('active');
+//         textRelative.classList.remove('active');
+//         contactElement.classList.remove('active');
+//     }
+// })
