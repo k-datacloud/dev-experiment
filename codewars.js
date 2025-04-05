@@ -68,26 +68,29 @@
 
 const menuBtn = document.querySelector('.menu-btn');
 const headerNav = document.querySelector('.header__nav');
+const menuBtnClose = document.querySelector('.menu-btn .menu-btn-label--close');
+const menuBtnOpen = document.querySelector('.menu-btn .menu-btn-label--open');
+
 
 menuBtn.addEventListener('click', () => {
 
     if (headerNav.classList.contains('menu-close')) {
         headerNav.classList.remove('menu-close');
-        headerNav.classList.add('menu-active');
-        menuBtn.textContent = menuBtn.getAttribute('data-close');
-        menuBtn.classList.add('menu-btn--close');
+        headerNav.classList.add('is-active');
+        menuBtnClose.classList.add('is-active');
+        menuBtnOpen.classList.add('is-active');
     } else {
-        headerNav.classList.remove('menu-active');
+        headerNav.classList.remove('is-active');
         headerNav.classList.add('menu-close');
-        menuBtn.textContent = menuBtn.getAttribute('data-open');
-        menuBtn.classList.remove('menu-btn--close');
+        menuBtnClose.classList.remove('is-active');
+        menuBtnOpen.classList.remove('is-active');
     }
 })
 
 window.addEventListener('load', () => {
     const footer = document.querySelector('.footer');
     const headerTitle = document.querySelectorAll('.header__title');
-    const headerLink = document.querySelectorAll('.header-list__link');
+    const headerLink = document.querySelectorAll('.header__list-pc .header-list__link');
     const footerHeight = footer.getBoundingClientRect().top + window.scrollY;
 
     window.addEventListener('scroll', () => {
@@ -95,34 +98,25 @@ window.addEventListener('load', () => {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--inactive');
                 title.classList.add('c-scroll-text--active');
-                console.log(window.scrollY);
-                console.log(footerHeight);
-                console.log("きたよ");
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--inactive');
                 link.classList.add('c-scroll-text--active');
-                console.log(window.scrollY);
-                console.log(footerHeight);
-                console.log("きたよ");
             })
-            menuBtn.classList.remove('c-scroll-text--inactive');
-            menuBtn.classList.add('c-scroll-text--active');
+            menuBtnClose.classList.remove('c-scroll-text--inactive');
+            menuBtnClose.classList.add('c-scroll-text--active');
         } else {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--active');
                 title.classList.add('c-scroll-text--inactive');
-                console.log("まだだよ");
 
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--active');
                 link.classList.add('c-scroll-text--inactive');
-                console.log("まだだよ");
-
             })
-            menuBtn.classList.remove('c-scroll-text--active');
-            menuBtn.classList.add('c-scroll-text--inactive');
+            menuBtnClose.classList.remove('c-scroll-text--active');
+            menuBtnClose.classList.add('c-scroll-text--inactive');
         }
     })
 
@@ -131,7 +125,7 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
     const footer = document.querySelector('.footer');
     const headerTitle = document.querySelectorAll('.header__title');
-    const headerLink = document.querySelectorAll('.header-list__link');
+    const headerLink = document.querySelectorAll('.header__list-pc .header-list__link');
     const footerHeight = footer.getBoundingClientRect().top + window.scrollY;
 
     window.addEventListener('scroll', () => {
@@ -139,31 +133,21 @@ window.addEventListener('resize', () => {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--inactive');
                 title.classList.add('c-scroll-text--active');
-                console.log(window.scrollY);
-                console.log(footerHeight);
-                console.log("きたよ");
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--inactive');
                 link.classList.add('c-scroll-text--active');
-                console.log(window.scrollY);
-                console.log(footerHeight);
-                console.log("きたよ");
             })
-            menuBtn.classList.remove('c-scroll-text--inactive');
-            menuBtn.classList.add('c-scroll-text--active');
+            menuBtnClose.classList.remove('c-scroll-text--inactive');
+            menuBtnClose.classList.add('c-scroll-text--active');
         } else {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--active');
                 title.classList.add('c-scroll-text--inactive');
-                console.log("まだだよ");
-
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--active');
                 link.classList.add('c-scroll-text--inactive');
-                console.log("まだだよ");
-
             })
             menuBtn.classList.remove('c-scroll-text--active');
             menuBtn.classList.add('c-scroll-text--inactive');

@@ -94,6 +94,22 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   visibility: hidden;
   background-color: #ffffff;
 }
+.header__nav.menu-close {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+@media (min-width: 1024px) {
+  .header__nav.menu-close {
+    opacity: 1;
+    z-index: 0;
+  }
+}
+.header__nav.is-active {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
 @media (min-width: 1024px) {
   .header__nav {
     width: auto;
@@ -101,22 +117,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     position: static;
     visibility: visible;
     background-color: transparent;
-  }
-}
-.header .menu-active {
-  transition: opacity 0.7s ease-in-out;
-  opacity: 1;
-  visibility: visible;
-}
-.header .menu-close {
-  transition: opacity 0.2s ease-in-out;
-  z-index: -1;
-  opacity: 0;
-}
-@media (min-width: 1024px) {
-  .header .menu-close {
-    opacity: 1;
-    z-index: 0;
   }
 }
 .header__list-sp {
@@ -194,6 +194,15 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   letter-spacing: -0.04em;
 }
 .header .menu-btn {
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .header .menu-btn {
+    display: none;
+  }
+}
+.header .menu-btn-label {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -201,18 +210,24 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   color: #000000;
   text-transform: capitalize;
   letter-spacing: -0.04em;
+  display: block;
 }
-@media (min-width: 1024px) {
-  .header .menu-btn {
-    display: none;
-  }
+.header .menu-btn-label--close {
+  transform: translateY(0);
+  transition: transform 0.5s;
 }
-.header .menu-btn--close {
+.header .menu-btn-label--close.is-active {
+  transform: translateY(-100%);
+}
+.header .menu-btn-label--open {
   color: #fc3636;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
+  top: 100%;
+  left: 0;
+  transition: top 0.5s;
+}
+.header .menu-btn-label--open.is-active {
+  top: 0;
 }
 .header .c-scroll-text--inactive {
   color: #000000;
