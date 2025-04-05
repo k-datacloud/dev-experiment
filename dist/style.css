@@ -498,8 +498,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 @media (min-width: 768px) {
   .p-top-showcase .p-top-showcase-list__info {
-    flex-direction: column;
-    align-items: start;
+    display: block;
   }
 }
 .p-top-showcase__title {
@@ -542,6 +541,11 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   text-transform: capitalize;
   letter-spacing: -0.04em;
 }
+@media (min-width: 1024px) {
+  .p-top-showcase__link {
+    display: block;
+  }
+}
 .p-top-showcase__img {
   display: block;
   overflow: hidden;
@@ -572,7 +576,29 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   }
 }
 .p-top-showcase .divider {
+  width: 100%;
   margin-top: 1rem;
+}
+.p-top-showcase .hover {
+  animation: hover 1s ease-in-out forwards;
+}
+@keyframes hover {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.01% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
 }
 
 .intro {

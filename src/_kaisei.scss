@@ -538,8 +538,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             align-items: end;
     
             @include respond-to(medium) {
-                flex-direction: column;
-                align-items: start;
+                display: block;
             }
         }
     }
@@ -574,6 +573,10 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         text-decoration: none;
         text-transform: capitalize;
         letter-spacing: -0.04em;
+
+        @include respond-to(lg) {
+            display: block;
+        }
     }
 
     &__img {
@@ -606,7 +609,36 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 
     .divider {
+        width: 100%;
         margin-top: 1rem;
+    }
+        
+
+    .hover {
+        animation: hover 1s ease-in-out forwards;
+        // transform-origin: left;
+
+        @keyframes hover {
+            0% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            50% {
+                transform: scaleX(1);
+                transform-origin: left;
+            }   
+
+            50.01% {
+                transform: scaleX(1);
+                transform-origin: right;
+            }
+
+            100% {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+        }
     }
 }
 

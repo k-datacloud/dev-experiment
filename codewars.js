@@ -231,3 +231,15 @@ for (let index = 0; index < langSwitch.length; index++) {
 
     });
 }
+
+//hover 
+const topLink = document.querySelectorAll('.p-top-showcase-list__info');
+const dividers = document .querySelectorAll('.p-top-showcase .divider');
+topLink.forEach((link, index) => {
+    link.addEventListener('mouseenter', () => {
+        dividers[index].classList.add('hover');
+    })
+    link.addEventListener('mouseleave', () => {
+        dividers[index].classList.remove('hover');
+    })
+})
