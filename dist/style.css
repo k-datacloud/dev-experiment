@@ -491,6 +491,32 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     max-width: 432px;
   }
 }
+@media (min-width: 1024px) {
+  .p-top-showcase .p-top-showcase-list__body {
+    cursor: pointer;
+  }
+  .p-top-showcase .p-top-showcase-list__body:hover .divider {
+    animation: hover 1s ease-in-out forwards;
+  }
+  @keyframes hover {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    50% {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    50.01% {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+    100% {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
+}
 .p-top-showcase .p-top-showcase-list__info {
   display: flex;
   justify-content: space-between;
@@ -581,24 +607,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 }
 .p-top-showcase .hover {
   animation: hover 1s ease-in-out forwards;
-}
-@keyframes hover {
-  0% {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  50% {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  50.01% {
-    transform: scaleX(1);
-    transform-origin: right;
-  }
-  100% {
-    transform: scaleX(0);
-    transform-origin: right;
-  }
 }
 
 .intro {

@@ -70,7 +70,7 @@ const menuBtn = document.querySelector('.menu-btn');
 const headerNav = document.querySelector('.header__nav');
 
 menuBtn.addEventListener('click', () => {
-    
+
     if (headerNav.classList.contains('menu-close')) {
         headerNav.classList.remove('menu-close');
         headerNav.classList.add('menu-active');
@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
     const footerHeight = footer.getBoundingClientRect().top + window.scrollY;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY >= ( footerHeight - 20 ) ) {
+        if (window.scrollY >= (footerHeight - 20)) {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--inactive');
                 title.classList.add('c-scroll-text--active');
@@ -113,19 +113,19 @@ window.addEventListener('load', () => {
                 title.classList.remove('c-scroll-text--active');
                 title.classList.add('c-scroll-text--inactive');
                 console.log("まだだよ");
-                
+
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--active');
                 link.classList.add('c-scroll-text--inactive');
                 console.log("まだだよ");
-                
+
             })
             menuBtn.classList.remove('c-scroll-text--active');
             menuBtn.classList.add('c-scroll-text--inactive');
         }
     })
-    
+
 })
 
 window.addEventListener('resize', () => {
@@ -135,7 +135,7 @@ window.addEventListener('resize', () => {
     const footerHeight = footer.getBoundingClientRect().top + window.scrollY;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY >= ( footerHeight - 20 ) ) {
+        if (window.scrollY >= (footerHeight - 20)) {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--inactive');
                 title.classList.add('c-scroll-text--active');
@@ -157,19 +157,19 @@ window.addEventListener('resize', () => {
                 title.classList.remove('c-scroll-text--active');
                 title.classList.add('c-scroll-text--inactive');
                 console.log("まだだよ");
-                
+
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--active');
                 link.classList.add('c-scroll-text--inactive');
                 console.log("まだだよ");
-                
+
             })
             menuBtn.classList.remove('c-scroll-text--active');
             menuBtn.classList.add('c-scroll-text--inactive');
         }
     })
-    
+
 })
 
 const langSwitch = document.querySelectorAll('.c-lang-toggle');
@@ -206,7 +206,7 @@ for (let index = 0; index < langSwitch.length; index++) {
             })
         } else {
             langSwitch[index].classList.add('active-lang');
-            langSwitch[index + 1].classList.remove('active-lang'); 
+            langSwitch[index + 1].classList.remove('active-lang');
             introTitles.forEach((title) => {
                 title.textContent = title.getAttribute('data-en');
                 title.classList.remove('intro__title--jp');
@@ -232,14 +232,14 @@ for (let index = 0; index < langSwitch.length; index++) {
     });
 }
 
-//hover 
-const topLink = document.querySelectorAll('.p-top-showcase-list__info');
-const dividers = document .querySelectorAll('.p-top-showcase .divider');
-topLink.forEach((link, index) => {
-    link.addEventListener('mouseenter', () => {
-        dividers[index].classList.add('hover');
-    })
-    link.addEventListener('mouseleave', () => {
-        dividers[index].classList.remove('hover');
-    })
-})
+//hover
+// const topLink = document.querySelectorAll('.p-top-showcase-list__info');
+// const dividers = document .querySelectorAll('.p-top-showcase .divider');
+// topLink.forEach((link, index) => {
+//     link.addEventListener('mouseenter', () => {
+//         dividers[index].classList.add('hover');
+//     })
+//     link.addEventListener('mouseleave', () => {
+//         dividers[index].classList.remove('hover');
+//     })
+// })

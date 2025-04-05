@@ -530,6 +530,36 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
                 width: calc(432/1440 * 100vw);
                 max-width: 432px;
             }
+
+            @include respond-to(lg) {
+                cursor: pointer;
+                
+                &:hover .divider{
+                    animation: hover 1s ease-in-out forwards;
+
+                    @keyframes hover {
+                        0% {
+                            transform: scaleX(0);
+                            transform-origin: left;
+                        }
+            
+                        50% {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }   
+            
+                        50.01% {
+                            transform: scaleX(1);
+                            transform-origin: right;
+                        }
+            
+                        100% {
+                            transform: scaleX(0);
+                            transform-origin: right;
+                        }
+                    }
+                }
+            }
         }
 
         &__info {
@@ -618,27 +648,27 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         animation: hover 1s ease-in-out forwards;
         // transform-origin: left;
 
-        @keyframes hover {
-            0% {
-                transform: scaleX(0);
-                transform-origin: left;
-            }
+        // @keyframes hover {
+        //     0% {
+        //         transform: scaleX(0);
+        //         transform-origin: left;
+        //     }
 
-            50% {
-                transform: scaleX(1);
-                transform-origin: left;
-            }   
+        //     50% {
+        //         transform: scaleX(1);
+        //         transform-origin: left;
+        //     }   
 
-            50.01% {
-                transform: scaleX(1);
-                transform-origin: right;
-            }
+        //     50.01% {
+        //         transform: scaleX(1);
+        //         transform-origin: right;
+        //     }
 
-            100% {
-                transform: scaleX(0);
-                transform-origin: right;
-            }
-        }
+        //     100% {
+        //         transform: scaleX(0);
+        //         transform-origin: right;
+        //     }
+        // }
     }
 }
 
