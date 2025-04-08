@@ -74,16 +74,14 @@ const menuBtnOpen = document.querySelector('.menu-btn .menu-btn-label--open');
 
 menuBtn.addEventListener('click', () => {
 
-    if (headerNav.classList.contains('menu-close')) {
-        headerNav.classList.remove('menu-close');
+    if (headerNav.classList.contains('is-active')) {
+        headerNav.classList.remove('is-active');
+        menuBtnClose.classList.remove('is-active');
+        menuBtnOpen.classList.remove('is-active');
+    } else {
         headerNav.classList.add('is-active');
         menuBtnClose.classList.add('is-active');
         menuBtnOpen.classList.add('is-active');
-    } else {
-        headerNav.classList.remove('is-active');
-        headerNav.classList.add('menu-close');
-        menuBtnClose.classList.remove('is-active');
-        menuBtnOpen.classList.remove('is-active');
     }
 })
 
@@ -109,7 +107,6 @@ window.addEventListener('load', () => {
             headerTitle.forEach((title) => {
                 title.classList.remove('c-scroll-text--active');
                 title.classList.add('c-scroll-text--inactive');
-
             })
             headerLink.forEach((link) => {
                 link.classList.remove('c-scroll-text--active');

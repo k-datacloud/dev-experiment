@@ -99,3 +99,15 @@ const textRelatives = document.querySelectorAll('.scrollamount');
 //         contactElement.classList.remove('active');
 //     }
 // })
+
+
+//follow scroll
+window.addEventListener('scroll', () => {
+    const followElements = document.querySelectorAll('.follow-scroll-card__item');
+    followElements.forEach( (followElement, index) => {
+        const followElementHeight = followElement.getBoundingClientRect().top + window.scrollY;
+         if ( window.scrollY >= followElementHeight ) {
+            followElement.classList.add('is-active');
+        } 
+    })
+})
