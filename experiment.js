@@ -80,25 +80,25 @@ const textRelatives = document.querySelectorAll('.scrollamount');
             })
         })
 
-// window.addEventListener('scroll', () => {
-//     let scrollAmount = window.scrollY;
-//     textAbusolute.textContent = Math.round(contactElementHeight);
-//     textRelative.textContent = Math.round(scrollAmount);
-//     console.log(contactElementHeight);
-//     console.log(scrollAmount);
+window.addEventListener('scroll', () => {
+    let scrollAmount = window.scrollY;
+    textAbusolute.textContent = Math.round(contactElementHeight);
+    textRelative.textContent = Math.round(scrollAmount);
+    console.log(contactElementHeight);
+    console.log(scrollAmount);
 
-//     if ( scrollAmount >= ( contactElementHeight - 170 ) ) {
-//         textAbusolute.classList.add('active');
-//         textRelative.classList.add('active');
-//         contactElement.classList.add('active');
-//     } else {
-//         console.log("false");
+    if ( scrollAmount >= ( contactElementHeight - 170 ) ) {
+        textAbusolute.classList.add('active');
+        textRelative.classList.add('active');
+        contactElement.classList.add('active');
+    } else {
+        console.log("false");
         
-//         textAbusolute.classList.remove('active');
-//         textRelative.classList.remove('active');
-//         contactElement.classList.remove('active');
-//     }
-// })
+        textAbusolute.classList.remove('active');
+        textRelative.classList.remove('active');
+        contactElement.classList.remove('active');
+    }
+})
 
 
 //follow scroll
