@@ -113,13 +113,20 @@ body {
 
             &--long {
                 max-width: 325px;
-                margin-bottom: 24px;
+                margin-bottom: calc(40/16 * 1rem);
                 line-height: 1.5;
+            }
+
+            &--follow {
+               margin-bottom: calc(40/16 * 1rem);
+
+               .hero__link:first-of-type {
+                    padding-right: 16px;
+               }
             }
 
             &--contact{
                 margin-bottom: 120px;
-                text-transform: none;
             }
 
             &--scroll {
@@ -129,8 +136,17 @@ body {
         }
     }
 
+    &__link {
+        text-transform: none;
+        color: #0000ee;
+    }
+
     .hero-arrow {
-        width: 30px;
-        aspect-ratio: 1/1;
+        
+
+        @include respond-to(lg) {
+            width: 30px;
+            aspect-ratio: 1/1;
+        }
     }
 }
