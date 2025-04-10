@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 $breakpoints: (
-    medium: 768px,
-    lg: 1024px,
+    lg: 860px,
 );
 
 @mixin respond-to($breakpoint) {
@@ -31,6 +30,58 @@ body {
     background-color: #ececec;
 }
 
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    &__wrapper {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        @include respond-to(lg) {
+            padding: 40px;
+        }
+    }
+
+    &__nav {
+        display: none;
+    }
+
+    &__link {
+        @include worksans(14, 500);
+        
+        &--title {
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            display: block;
+
+            @include respond-to(lg) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .menu-btn {
+
+        &__link {
+            @include worksans(14, 500);
+            text-transform: capitalize;
+            letter-spacing: -0.02em;
+            display: block;
+
+            @include respond-to(lg) {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
 .hero {
     width: 100%;
     height: 100vh;
@@ -39,7 +90,7 @@ body {
     &__wrapper {
         width: 100%;
         height: 100%;
-        padding: 0 20px;
+        padding: calc(144/16 * 1rem) 20px 0;
         display: flex;
         flex-direction: column;
 
@@ -50,27 +101,30 @@ body {
     }
 
     &__info {
+        width: calc(204/390 * 100vw);
+        margin-bottom: calc(80/16 * 1rem);
+        margin-left: auto;
+        animation: fadeInInfo 1s ease-in-out forwards;
+        opacity: 0;
+        transform: translateX(20px);
+        animation-delay: 1s;
+
+        @keyframes fadeInInfo {
+
+            0% {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }   
+            
+        }
 
         @include respond-to(lg) {
             width: 50%;
             margin-left: auto;
-            animation: fadeInInfo 1s ease-in-out forwards;
-            opacity: 0;
-            transform: translateX(20px);
-            animation-delay: 1s;
-
-            @keyframes fadeInInfo {
-
-                0% {
-                    opacity: 0;
-                    transform: translateX(20px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateX(0);
-                }   
-                
-            }
         }
     }
 
@@ -78,7 +132,10 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: auto;
+        
+        @include respond-to(lg) {
+            margin-top: auto;
+        }
     }
 
     &__title-letter {
@@ -105,48 +162,94 @@ body {
     }
 
     &__text {
-        
+        @include worksans(14, 400);
+        font-size: min(calc(14/390 * 100vw), 16px);
+        text-transform: capitalize;
+        letter-spacing: -0.02em;
+
         @include respond-to(lg) {
-            @include worksans(16, 400);
-            text-transform: capitalize;
-            letter-spacing: -0.02em;
+            font-size: 1rem;
+        }
 
-            &--long {
-                max-width: 325px;
+        &--long {
+            max-width: 210px;
+            margin-bottom: calc(24/16 * 1rem);
+            line-height: 1.5;
+
+            @include respond-to(lg) {
+
+                &--long {
+                    max-width: 325px;
+                    margin-bottom: calc(40/16 * 1rem);
+                }
+            }
+        }
+
+        &--follow {
+            margin-bottom: calc(24/16 * 1rem);
+
+            @include respond-to(lg) {
                 margin-bottom: calc(40/16 * 1rem);
-                line-height: 1.5;
             }
+        }
 
-            &--follow {
-               margin-bottom: calc(40/16 * 1rem);
+        &--contact {
+            margin-bottom: calc(96/16 * 1rem);
 
-               .hero__link:first-of-type {
-                    padding-right: 16px;
-               }
+            @include respond-to(lg) {
+                margin-bottom: calc(120/16 * 1rem);
             }
+        }
 
-            &--contact{
-                margin-bottom: 120px;
-            }
-
-            &--scroll {
-                display: flex;
-                align-items: center;
-            }
+        &--scroll {
+            display: flex;
+            align-items: center;
         }
     }
 
     &__link {
+        @include worksans(14, 400);
+        font-size: min(calc(14/390 * 100vw), 16px);
         text-transform: none;
         color: #0000ee;
+        display: inline-block;
+
+        @include respond-to(lg) {
+            position: relative;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 100%;
+                height: 1px;
+                background-color: #0000ee;
+                transform: scaleX(0);
+                transition: transform 0.3s ease-in-out;
+                will-change: transform;
+                transform-origin: left;
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+            }
+
+            &:hover .hero__link::after {
+                transform: scaleX(1);
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    .hero-list {
+        display: flex;
+        gap: 1rem;
     }
 
     .hero-arrow {
-        
+        width: 30px;
+        aspect-ratio: 1/1;
 
-        @include respond-to(lg) {
-            width: 30px;
-            aspect-ratio: 1/1;
-        }
     }
 }
