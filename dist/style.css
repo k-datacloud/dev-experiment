@@ -3,6 +3,30 @@ body {
   background-color: #ececec;
 }
 
+.index {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 0.875rem;
+  font-style: normal;
+  color: #222222;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  margin-bottom: 2.5rem;
+  display: inline-block;
+  position: relative;
+}
+.index:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  background-color: #222222;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -53,13 +77,17 @@ body {
 
 .hero {
   width: 100%;
-  height: 100vh;
   overflow: hidden;
+}
+@media (min-width: 860px) {
+  .hero {
+    height: 100vh;
+  }
 }
 .hero__wrapper {
   width: 100%;
   height: 100%;
-  padding: 9rem 20px 0;
+  padding: 8rem 20px 0;
   display: flex;
   flex-direction: column;
 }
@@ -96,7 +124,6 @@ body {
 .hero__title {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   animation: fadeInTitle 1s ease-in-out forwards;
   animation-delay: 2s;
   opacity: 0;
@@ -115,18 +142,24 @@ body {
 @media (min-width: 860px) {
   .hero__title {
     margin-top: auto;
+    justify-content: space-between;
   }
 }
 .hero__title-letter {
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
-  font-size: 12.5rem;
+  font-size: 4.25rem;
   font-style: normal;
   color: #222222;
-  font-size: 13.8888888889vw;
+  font-size: 17.4358974359vw;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+}
+@media (min-width: 860px) {
+  .hero__title-letter {
+    font-size: 13.8888888889vw;
+  }
 }
 .hero__text {
   font-family: "Work Sans", sans-serif;
@@ -221,9 +254,29 @@ body {
   aspect-ratio: 1/1;
 }
 
+.message__wrapper {
+  padding: 5rem 20px 0;
+}
+.message__text {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: #222222;
+  letter-spacing: -0.04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .dummy {
   width: 100%;
-  height: 100vh;
+  height: 200vh;
+  position: relative;
+}
+.dummy p {
+  position: sticky;
+  top: 20%;
 }
 
 /*# sourceMappingURL=style.css.map */
