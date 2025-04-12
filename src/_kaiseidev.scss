@@ -34,7 +34,7 @@ body {
     @include worksans(14, 400);
     letter-spacing: -0.02em;
     text-transform: capitalize;
-    margin-bottom: calc(40/16 * 1rem);
+    margin-bottom: calc(32/16 * 1rem);
     display: inline-block;
     position: relative;
 
@@ -70,7 +70,29 @@ body {
     }
 
     &__nav {
+        display: flex;
+        align-items: center;
         display: none;
+        width: 50%;
+        height: 100vh;
+        background-color: #222222;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .header-list {
+            display: flex;
+            flex-direction: column;
+            padding-left: 40px;
+            gap: calc(40/16 * 1rem);
+
+            &__link {
+                @include worksans(48, 400);
+                text-transform: capitalize;
+                letter-spacing: -0.02em;
+                color: #ffffff;
+            }
+        }
     }
 
     &__link {
@@ -172,7 +194,7 @@ body {
     }
 
     &__title-letter {
-        @include worksans(68, 600);
+        @include worksans(68, 500);
         font-size: calc(68/390 * 100vw);
         text-transform: uppercase;
         letter-spacing: -0.02em;
@@ -277,6 +299,11 @@ body {
 
 .message {
     width: 100%;
+    margin-bottom: calc(120/16 * 1rem);
+
+    @include respond-to(lg) {
+        margin-bottom: calc(192/16 * 1rem);
+    }
 
     &__wrapper {
         width: 100%;
@@ -285,18 +312,111 @@ body {
         @include respond-to(lg) {
             width: 50%;
             margin-left: auto;
-            padding: calc(160/16 * 1rem) 40px 0;
+            padding: calc(192/16 * 1rem) 40px 0 0;
         }
     }
 
     &__text {
         @include worksans(24, 400);
+        font-size: min(calc(24/390 * 100vw), 24px);
         letter-spacing: -0.04em;
         line-height: 1.5;
         text-transform: uppercase;
 
         @include respond-to(lg) {
-            font-size: calc(32/16 * 1rem);
+            font-size: min(calc(32/1440 * 100vw), 32px);
+        }
+    }
+}
+
+.service {
+    width: 100%;
+    margin-bottom: calc(120/16 * 1rem);
+
+    &__wrapper {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+
+        @include respond-to(lg) {
+            padding: 0 40px;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__content-right {
+        
+        @include respond-to(lg) {
+            width: 50%;
+            padding-top: calc(40/16 * 1rem);
+        }
+    }
+
+    &__content-left {
+        margin-bottom: calc(64/16 * 1rem);
+
+        @include respond-to(lg) {
+            width: calc(50% - 40px);
+            margin-bottom: 0;
+        }
+    }
+
+    &__text {
+        @include worksans(16, 400);
+        letter-spacing: -0.04em;
+        line-height: 1.5;
+        max-width: 280px;
+
+        @include respond-to(lg) {
+            font-size: calc(18/16 * 1rem);
+            max-width: 400px;
+        }
+    }
+
+    .service-list {
+        display: flex;
+        flex-direction: column;
+        gap: calc(40/16 * 1rem);
+
+        @include respond-to(lg) {
+            gap: calc(80/16 * 1rem);
+        }
+
+        .dot {
+            display: inline-block;
+            width: 5px;
+            aspect-ratio: 1/1;
+            background-color: #222222;
+            border-radius: 50%;
+            margin-right: calc(8/16 * 1rem);
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            width: fit-content;
+            @include worksans(28, 400);
+            letter-spacing: -0.04em;
+            text-transform: capitalize;
+            position: relative;
+
+            @include respond-to(lg) {
+                font-size: min(calc(56/1440 * 100vw), 56px);
+            }
+
+            &:after {
+                content: "";
+                display: inline-block;
+                width: 100%;
+                height: 1px;
+                background-color: #222222;
+                position: absolute;
+                left: 0;
+                bottom: -12px;
+            }
         }
     }
 }
