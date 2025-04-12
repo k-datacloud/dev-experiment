@@ -254,8 +254,19 @@ body {
   aspect-ratio: 1/1;
 }
 
+.message {
+  width: 100%;
+}
 .message__wrapper {
+  width: 100%;
   padding: 5rem 20px 0;
+}
+@media (min-width: 860px) {
+  .message__wrapper {
+    width: 50%;
+    margin-left: auto;
+    padding: 10rem 40px 0;
+  }
 }
 .message__text {
   font-family: "Work Sans", sans-serif;
@@ -267,6 +278,11 @@ body {
   letter-spacing: -0.04em;
   line-height: 1.5;
   text-transform: uppercase;
+}
+@media (min-width: 860px) {
+  .message__text {
+    font-size: 2rem;
+  }
 }
 
 .dummy {

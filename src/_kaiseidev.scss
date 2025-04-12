@@ -276,9 +276,17 @@ body {
 }
 
 .message {
+    width: 100%;
 
     &__wrapper {
+        width: 100%;
         padding: calc(80/16 * 1rem) 20px 0;
+
+        @include respond-to(lg) {
+            width: 50%;
+            margin-left: auto;
+            padding: calc(160/16 * 1rem) 40px 0;
+        }
     }
 
     &__text {
@@ -286,6 +294,10 @@ body {
         letter-spacing: -0.04em;
         line-height: 1.5;
         text-transform: uppercase;
+
+        @include respond-to(lg) {
+            font-size: calc(32/16 * 1rem);
+        }
     }
 }
 
