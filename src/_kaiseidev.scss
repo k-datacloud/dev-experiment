@@ -32,9 +32,9 @@ body {
 
 .index {
     @include worksans(14, 400);
+    font-size: min(calc(14/390 * 100vw), 16px);
     letter-spacing: -0.02em;
     text-transform: capitalize;
-    margin-bottom: calc(32/16 * 1rem);
     display: inline-block;
     position: relative;
 
@@ -301,6 +301,10 @@ body {
     width: 100%;
     margin-bottom: calc(120/16 * 1rem);
 
+    .index {
+        margin-bottom: calc(40/16 * 1rem);
+    }
+
     @include respond-to(lg) {
         margin-bottom: calc(192/16 * 1rem);
     }
@@ -346,6 +350,10 @@ body {
         }
     }
 
+    .index {
+        margin-bottom: calc(24/16 * 1rem);
+    }
+
     &__content-right {
         
         @include respond-to(lg) {
@@ -365,6 +373,7 @@ body {
 
     &__text {
         @include worksans(16, 400);
+        font-size: min(calc(16/390 * 100vw), 16px);
         letter-spacing: -0.04em;
         line-height: 1.5;
         max-width: 280px;
@@ -397,8 +406,8 @@ body {
             display: flex;
             align-items: center;
             list-style: none;
-            width: fit-content;
             @include worksans(28, 400);
+            font-size: min(calc(28/390 * 100vw), 28px);
             letter-spacing: -0.04em;
             text-transform: capitalize;
             position: relative;

@@ -10,9 +10,9 @@ body {
   font-size: 0.875rem;
   font-style: normal;
   color: #222222;
+  font-size: min(3.5897435897vw, 16px);
   letter-spacing: -0.02em;
   text-transform: capitalize;
-  margin-bottom: 2rem;
   display: inline-block;
   position: relative;
 }
@@ -283,6 +283,9 @@ body {
   width: 100%;
   margin-bottom: 7.5rem;
 }
+.message .index {
+  margin-bottom: 2.5rem;
+}
 @media (min-width: 860px) {
   .message {
     margin-bottom: 12rem;
@@ -334,6 +337,9 @@ body {
     justify-content: space-between;
   }
 }
+.service .index {
+  margin-bottom: 1.5rem;
+}
 @media (min-width: 860px) {
   .service__content-right {
     width: 50%;
@@ -356,6 +362,7 @@ body {
   font-size: 1rem;
   font-style: normal;
   color: #222222;
+  font-size: min(4.1025641026vw, 16px);
   letter-spacing: -0.04em;
   line-height: 1.5;
   max-width: 280px;
@@ -388,13 +395,13 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
-  width: fit-content;
   font-family: "Work Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: 1.75rem;
   font-style: normal;
   color: #222222;
+  font-size: min(7.1794871795vw, 28px);
   letter-spacing: -0.04em;
   text-transform: capitalize;
   position: relative;
