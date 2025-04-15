@@ -71,19 +71,33 @@ window.addEventListener('scroll', () => {
     let rect = scrollJudgeText.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     if ( rect.top + 200 < windowHeight && rect.top > 0 ) {
-        console.log("element is visible");
-        console.log(rect.top);
+        // console.log("element is visible");
+        // console.log(rect.top);
         
     } else {
-        console.log("element is not visible");
-        console.log(rect.top);
+        // console.log("element is not visible");
+        // console.log(rect.top);
     }
 })
 
+//machine to change font size according to scroll position
 window.addEventListener('scroll', () => {
-    const bodyWrapper = document.querySelector('.body-wrapper');
-    let scrollY = window.scrollY;
-    const speed = 0.1;
-bodyWrapper.style.transform = `translateY(${scrollY * speed}px)`
-    console.log(scrollY);
+    const scrollFontchangeText = document.querySelector('.scroll-fontchange__text');
+    let scrollY = window.scrollY
+    const rect = scrollFontchangeText.getBoundingClientRect();
+    const maxsize = 160
+    const minsize = 16
+    const process = Math.min(scrollY/400, 1);
+    console.log(process);
+    
+    const size = maxsize - (maxsize - minsize) * process;
+    scrollFontchangeText.style.fontSize = `${size}px`;
+    if ( size > minsize ) {
+        scrollFontchangeText.classList.remove('active');
+        scrollFontchangeText.style.transform = `translateY(${-scrollY}px)`;
+        console.log("font size is changing");
+    } else {
+        scrollFontchangeText.classList.add('active');
+        scrollFontchangeText.style.transform = `translateY(0px)`;
+    }
 })

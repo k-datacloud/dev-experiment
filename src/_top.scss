@@ -112,6 +112,31 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 }
 
+.scroll-fontchange {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-color: #ffffff;
+    position: relative;
+
+    &__text {
+        font-size: 160px;
+        color: #000000;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+        position: absolute;
+        bottom: 0;
+        left: 40px;
+        transform: translate(0, 0);
+
+        &.active {
+            position: fixed;
+            top: 20px;
+        }
+    }
+}
+
 .origin {
     width: 100%;
     height: calc(100vh - 40px);
@@ -405,10 +430,6 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     align-items: center;
     background-color: #ffffff;
     transition: background-color 0.3s ease-in-out;
-}
-
-.active {
-    background-color: #fc3636;
 }
 
 .bg {
