@@ -64,15 +64,20 @@ window.addEventListener('resize', () => {
 
 //accordion
 
-const accordionItem = document.querySelectorAll('.accordion__item');
-accordionItem.forEach((item) => {
-    item.addEventListener('click', () => {
-        for (let i = 0; i < accordionItem.length; i++) {
-            if (accordionItem[i] == item) {
-                item.classList.add('is-active');
-            } else {
-                accordionItem[i].classList.remove('is-active');
-            }
-        }
-    })
-})
+document.querySelectorAll('.accordion__item').forEach((item) => {
+    const answer = item.querySelector('.accordion__answer');
+  
+    item.querySelector('.accordion__question').addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+  
+      if (isOpen) {
+        item.classList.remove('is-open');
+        answer.style.height = '0px';
+      } else {
+        item.classList.add('is-open');
+        answer.style.height = answer.scrollHeight + 'px';
+      }
+    });
+  });
+  
+  

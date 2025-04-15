@@ -283,6 +283,11 @@ body {
   width: 100%;
   margin-bottom: 7.5rem;
 }
+@media (min-width: 768px) {
+  .message {
+    margin-bottom: 12rem;
+  }
+}
 .message .index {
   margin-bottom: 2.5rem;
 }
@@ -323,6 +328,11 @@ body {
 .service {
   width: 100%;
   margin-bottom: 7.5rem;
+}
+@media (min-width: 768px) {
+  .service {
+    margin-bottom: 12rem;
+  }
 }
 .service__wrapper {
   width: 100%;
@@ -432,9 +442,34 @@ body {
 .faqs__wrapper {
   width: 100%;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .faqs__wrapper {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+  }
+}
+.faqs__content-left {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .faqs__content-left {
+    width: calc(50% - 40px);
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .faqs__content-right {
+    width: 50%;
+    margin-left: auto;
+    padding-top: 3rem;
+  }
 }
 .faqs .index {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .faqs__text {
   display: none;
@@ -450,32 +485,47 @@ body {
     color: #222222;
     letter-spacing: -0.04em;
     line-height: 1.5;
+    max-width: 400px;
   }
 }
 .faqs .accordion {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .faqs .accordion {
+    gap: 5rem;
+  }
 }
 .faqs .accordion__item {
   width: 100%;
-  height: 25px;
   overflow: hidden;
   will-change: height;
   transition: height 0.5s ease-in-out;
 }
+@media (min-width: 768px) {
+  .faqs .accordion__item:hover {
+    cursor: pointer;
+  }
+}
 .faqs .accordion__item.is-active {
-  height: 80px;
+  height: auto;
 }
 .faqs .accordion__question {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+}
+.faqs .accordion__answer {
+  height: 0;
+  margin-top: 1rem;
+  will-change: height;
+  transition: height 0.5s ease-in-out;
 }
 .faqs .accordion__label {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
   align-items: center;
 }
 .faqs .accordion .dot {
@@ -496,12 +546,39 @@ body {
   letter-spacing: -0.04em;
   line-height: 1.5;
 }
+@media (min-width: 768px) {
+  .faqs .accordion__text {
+    font-size: 1.125rem;
+  }
+}
 .faqs .accordion__text--answer {
   padding-left: 0.75rem;
 }
-.faqs .accordion__icon {
+.faqs .accordion .accordion-button {
+  position: relative;
   width: 15px;
   aspect-ratio: 1/1;
+}
+@media (min-width: 768px) {
+  .faqs .accordion .accordion-button {
+    width: 24px;
+  }
+}
+.faqs .accordion__icon {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.faqs .accordion__line {
+  width: 100%;
+  border: solid 1.5px #222222;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transition: top 0.5s ease-in-out;
+  will-change: top;
+}
+.faqs .accordion__line.is-active {
+  top: 50%;
 }
 
 .dummy {
