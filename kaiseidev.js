@@ -5,22 +5,21 @@ window.addEventListener('scroll', () => {
     const speed = 1.5; // Adjust the speed to your liking
     const ypos = scrollY * speed;
     console.log(ypos);
-    
-    
-    // heroTitle.forEach ((title) => {
-    //     title.style.transform = `translateY(${ypos}px)`;
-    // })
-
-    // if (scrollY > 10) {
-    //     heroTitle.style.justifyContent = 'flex-start';
-    //     heroTitleLetters.forEach((letter, index) => {
-    //         letter.style.transform = `translateY(-${ypos}px)`;
-    //         letter.style.fontSize = `${Math.max(1.5 - (scrollY / 1000), 0.5)}em`;
-    //     });
-    // } else {
-    //     heroTitle.style.justifyContent = 'space-between';
-    // }
 })
 
-const underline = document.querySelectorAll('.service-list .underline');
-console.log(underline);
+window.addEventListener('scroll', () => {
+    const underlines = document.querySelectorAll('.service-list .underline');
+    console.log(underlines);
+
+    underlines.forEach( (line, index) => {
+        const height = window.innerHeight;
+        let rect = line.getBoundingClientRect();
+        console.log(rect.top + 50);
+            console.log(height);
+        if ( rect.top + 50  < height  && rect.top > 0) {
+            line.classList.add('is-active');
+        } else {
+            line.classList.remove('is-active');
+        }
+    })
+})

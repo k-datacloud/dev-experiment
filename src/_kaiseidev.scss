@@ -432,10 +432,18 @@ body {
 
         .underline {
             width: 100%;
-            border-bottom: 1px solid #222222;
+            border-bottom: 1.5px solid #222222;
             position: absolute;
             left: 0;
             bottom: -12px;
+            transform: scale(0);
+            transform-origin: left;
+            will-change: transform;
+            transition: transform 0.5s ease-in-out;
+
+            &.is-active {
+                transform: scale(1);
+            }
         }
     }
 }
