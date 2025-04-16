@@ -350,34 +350,39 @@ body {
     &__wrapper {
         width: 100%;
         padding: 0 20px;
-        display: flex;
-        flex-direction: column;
 
         @include respond-to(lg) {
             padding: 0 40px;
-            flex-direction: row;
-            justify-content: space-between;
         }
     }
 
     .index {
-        margin-bottom: calc(24/16 * 1rem);
+        margin-bottom: calc(64/16 * 1rem);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @include respond-to(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 
     &__content-right {
         
         @include respond-to(lg) {
             width: 50%;
-            padding-top: calc(40/16 * 1rem);
         }
     }
 
     &__content-left {
-        margin-bottom: calc(64/16 * 1rem);
+        display: none;
 
         @include respond-to(lg) {
+            display: block;
             width: calc(50% - 40px);
-            margin-bottom: 0;
         }
     }
 
@@ -460,23 +465,32 @@ body {
     width: 100%;
 
     &__wrapper {
+        margin: 0 auto;
         width: 100%;
+        max-width: 470px;
         padding: 0 20px;
+
+        @include respond-to(lg) {
+            max-width: none;
+            padding: 0 40px;
+        }
+    }
+
+    &__content {
         display: flex;
         flex-direction: column;
 
         @include respond-to(lg) {
-            padding: 0 40px;
-            display: flex;
             flex-direction: row;
-            
+            justify-content: space-between;
         }
     }
 
     &__content-left {
-        width: 100%;
+        display: none;
 
         @include respond-to(lg) {
+            display: block;
             width: calc(50% - 40px);
             padding-bottom: 0;
         }
@@ -487,7 +501,6 @@ body {
         @include respond-to(lg) {
             width: 50%;
             margin-left: auto;
-            padding-top: calc(48/16 * 1rem);
         }
     }
 
@@ -511,40 +524,40 @@ body {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: calc(40/16 * 1rem);
-
-        @include respond-to(lg) {
-            gap: calc(80/16 * 1rem);
-        }
 
         &__item {
             width: 100%;
-            overflow: hidden;
-            will-change: height;
-            transition: height 0.5s ease-in-out;
+            padding-bottom: calc(64/16 * 1rem);
+            transition: padding-bottom 0.5s ease-in-out;
+            will-change: padding-bottom;
 
             @include respond-to(lg) {
-                
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-
-            &.is-active {
-                height: auto;
+                padding-bottom: calc(96/16 * 1rem);
             }
         }
 
         &__question {
             display: flex;
             justify-content: space-between;
+
+            @include respond-to(lg) {
+                cursor: pointer;
+                opacity: 1;
+                transition: opacity 0.3s ease-in-out;
+                will-change: opacity;
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
         }
 
         &__answer {
             height: 0;
-            margin-top: 1rem;
-            will-change: height;
-            transition: height 0.5s ease-in-out;
+            overflow: hidden;
+            margin-top: 0;
+            will-change: height, margin-top;
+            transition: height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
         }
 
         &__label {
@@ -575,6 +588,11 @@ body {
 
             &--answer {
                 padding-left: calc(12/16 * 1rem);
+                padding-right: calc(15/16 * 1rem);
+
+                @include respond-to(lg) {
+                    padding-right: calc(24/16 * 1rem);
+                }
             }
         }
 

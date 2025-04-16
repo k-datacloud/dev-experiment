@@ -64,20 +64,30 @@ window.addEventListener('resize', () => {
 
 //accordion
 
-document.querySelectorAll('.accordion__item').forEach((item) => {
+const accordionItems = document.querySelectorAll('.accordion__item');
+accordionItems.forEach((item) => {
     const answer = item.querySelector('.accordion__answer');
+    console.log(item.querySelector('.accordion__question'));
   
     item.querySelector('.accordion__question').addEventListener('click', () => {
       const isOpen = item.classList.contains('is-open');
   
       if (isOpen) {
         item.classList.remove('is-open');
-        answer.style.height = '0px';
+        answer.style.height = 0;
+        answer.style.marginTop = 0;
       } else {
         item.classList.add('is-open');
         answer.style.height = answer.scrollHeight + 'px';
+        if (innerWidth < 768) {
+          answer.style.marginTop = 'calc(16/16 * 1rem)';
+        }
+        else {
+          answer.style.marginTop = 'calc(24/16 * 1rem)';
+        }
       }
     });
-  });
+});
+
   
   
