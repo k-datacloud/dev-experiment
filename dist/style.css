@@ -443,6 +443,7 @@ body {
 
 .faqs {
   width: 100%;
+  margin-bottom: 10rem;
 }
 .faqs__wrapper {
   margin: 0 auto;
@@ -604,14 +605,205 @@ body {
   top: 50%;
 }
 
-.dummy {
+.footer {
   width: 100%;
-  height: 200vh;
-  position: relative;
 }
-.dummy p {
-  position: sticky;
-  top: 20%;
+@media (min-width: 768px) {
+  .footer {
+    height: 100vh;
+  }
+}
+.footer__wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .footer__wrapper {
+    padding: 40px 40px 0;
+    height: 100%;
+  }
+}
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 85px);
+}
+.footer__content-top {
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .footer__content-top {
+    display: flex;
+    align-items: end;
+    margin-bottom: 0;
+  }
+}
+.footer__content-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .footer__content-bottom {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: auto;
+    margin-bottom: 2rem;
+  }
+}
+.footer__logo {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 3.75rem;
+  font-style: normal;
+  color: #222222;
+  color: #0000ec;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .footer__logo {
+    font-size: 10.4166666667vw;
+    margin-bottom: 0;
+    line-height: 1;
+    transform: translateY(100%);
+    opacity: 0;
+    height: auto;
+    padding-bottom: 10px;
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    will-change: transform, opacity, height;
+  }
+  .footer__logo.is-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.footer__text {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1.375rem;
+  font-style: normal;
+  color: #222222;
+  letter-spacing: -0.04em;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+@media (min-width: 768px) {
+  .footer__text {
+    font-size: 2rem;
+  }
+}
+.footer__text--copyright {
+  font-size: 0.75rem;
+}
+@media (min-width: 768px) {
+  .footer__text--copyright {
+    font-size: 0.875rem;
+  }
+}
+.footer__text--available {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer__text--available {
+    display: block;
+    font-size: 1.125rem;
+  }
+}
+.footer .footer-list {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .footer .footer-list {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.footer .footer-list__link {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: normal;
+  color: #222222;
+}
+@media (min-width: 768px) {
+  .footer .footer-list__link {
+    font-size: 1.125rem;
+  }
+}
+.footer .footer-list-media {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .footer .footer-list-media {
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+}
+.footer__icon {
+  width: 30px;
+  aspect-ratio: 1/1;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .footer__icon {
+    width: 60px;
+  }
+}
+.footer .br-sm {
+  display: block;
+}
+@media (min-width: 768px) {
+  .footer .br-sm {
+    display: none;
+  }
+}
+.footer .footer-tag--sp {
+  display: block;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .footer .footer-tag--sp {
+    display: none;
+  }
+}
+.footer .footer-tag--pc {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer .footer-tag--pc {
+    display: block;
+    margin-bottom: 0;
+    padding-left: 10.4166666667vw;
+  }
+}
+.footer .copyright {
+  width: 100%;
+  padding: 24px 0;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .footer .copyright {
+    padding: 32px 0;
+    text-align: right;
+  }
+}
+.footer .divider {
+  width: 100%;
+  border-top: 1px solid #222222;
 }
 
 /*# sourceMappingURL=style.css.map */

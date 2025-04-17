@@ -31,7 +31,6 @@
 window.addEventListener('load', () => {
     window.addEventListener('scroll', () => {
         const underlines = document.querySelectorAll('.service-list .underline');
-        console.log(underlines);
     
         underlines.forEach( (line, index) => {
             const height = window.innerHeight;
@@ -48,7 +47,6 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
     window.addEventListener('scroll', () => {
         const underlines = document.querySelectorAll('.service-list .underline');
-        console.log(underlines);
     
         underlines.forEach( (line, index) => {
             const height = window.innerHeight;
@@ -90,6 +88,27 @@ accordionItems.forEach((item, index) => {
       }
     });
 });
+
+
+//footer
+window.addEventListener('load', () => {
+    const footer = document.querySelector('.footer');
+    const footerContentTop = document.querySelector('.footer__logo');
+    const originalHeight = footerContentTop.getBoundingClientRect().height;
+    // footerContentTop.style.height = `0px`;
+    console.log(originalHeight);
+    window.addEventListener('scroll', () => {
+        if ( footer.getBoundingClientRect().bottom - 100 < window.innerHeight ) {
+            // footerContentTop.style.height = `${originalHeight}px`;
+            footerContentTop.classList.add('is-active');
+            console.log('footer logo is in view');
+        } else {
+            console.log('footer logo is not in view');
+            // contentTop.classList.remove('is-active');
+        }
+    })
+})
+
 
   
   
