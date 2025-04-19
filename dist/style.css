@@ -125,7 +125,7 @@ body {
   display: block;
 }
 .header .menu-btn {
-  cursor: pointer;
+  display: none;
 }
 .header .menu-btn__link {
   font-family: "Work Sans", sans-serif;
@@ -141,6 +141,8 @@ body {
 }
 @media (min-width: 768px) {
   .header .menu-btn {
+    display: block;
+    cursor: pointer;
     opacity: 1;
     transition: opacity 0.2s;
     will-change: opacity;
