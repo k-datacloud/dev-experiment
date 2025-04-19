@@ -71,14 +71,19 @@ body {
 
     &__nav {
         position: absolute;
-        top: 120px;
-        right: 40px;
+        top: 60px;
+        right: 20px;
         z-index: -1;
         transform: translateY(20px);
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         opacity: 0;
         will-change: transform, opacity;
         pointer-events: none;
+
+        @include respond-to(lg) {
+            top: 120px;
+            right: 40px;
+        }
 
         &.is-active {
             transform: translateY(0);
@@ -88,17 +93,42 @@ body {
         
 
         .header-list {
-            
-            @include respond-to(lg) {
-                display: flex;
-                flex-direction: column;
-                gap: calc(16/16 * 1rem);
+            display: flex;
+            flex-direction: column;
+            gap: calc(4/16 * 1rem);
 
-                &__link {
-                    @include worksans(16, 400);
-                    text-transform: capitalize;
-                    letter-spacing: -0.02em;
+            @include respond-to(lg) {
+                gap: calc(32/16 * 1rem);
+            }
+
+            &__link {
+                @include worksans(14, 400);
+                font-size: min(calc(14/390 * 100vw), 16px);
+                text-transform: capitalize;
+                letter-spacing: -0.02em;
+                display: flex;
+                align-items: center;
+                width: fit-content;
+
+                @include respond-to(lg) {
+                    opacity: 1;
+                    transition: opacity 0.2s;
+                    will-change: opacity;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
+            }
+
+            .dot {
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                aspect-ratio: 1/1;
+                background-color: #222222;
+                border-radius: 50%;
+                margin-right: calc(6/16 * 1rem);
             }
         }
     }
@@ -333,10 +363,13 @@ body {
     &__wrapper {
         width: 100%;
         padding: calc(80/16 * 1rem) 20px 0;
+        margin: 0 auto;
+        max-width: 470px;
 
         @include respond-to(lg) {
             width: 50%;
-            margin-left: auto;
+            max-width: none;
+            margin: 0 0 0 auto;
             padding: calc(192/16 * 1rem) 40px 0 0;
         }
     }
@@ -364,10 +397,13 @@ body {
 
     &__wrapper {
         width: 100%;
+        margin: 0 auto;
+        max-width: 470px;
         padding: 0 20px;
 
         @include respond-to(lg) {
             padding: 0 40px;
+            max-width: none;
         }
     }
 
@@ -437,7 +473,7 @@ body {
             align-items: center;
             list-style: none;
             @include worksans(28, 400);
-            font-size: min(calc(28/390 * 100vw), 28px);
+            font-size: min(calc(28/390 * 100vw), 40px);
             letter-spacing: -0.04em;
             text-transform: capitalize;
             position: relative;
@@ -660,7 +696,7 @@ body {
         padding: 0 20px;
 
         @include respond-to(lg) {
-            padding: 40px 40px 0;
+            padding: 80px 40px 0;
             height: 100%;
         }
     }
@@ -728,6 +764,7 @@ body {
             font-size: calc(150/1440 * 100vw);
             margin-bottom: 0;
             line-height: 1;
+            white-space: nowrap;
             transform: translateY(100%);
             opacity: 0;
             height: auto;
