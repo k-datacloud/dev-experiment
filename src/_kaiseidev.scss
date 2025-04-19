@@ -73,6 +73,7 @@ body {
         position: absolute;
         top: 120px;
         right: 40px;
+        z-index: -1;
         transform: translateY(20px);
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         opacity: 0;
@@ -315,7 +316,7 @@ body {
 
 .message {
     width: 100%;
-    margin-bottom: calc(120/16 * 1rem);
+    margin-bottom: calc(160/16 * 1rem);
 
     @include respond-to(lg) {
         margin-bottom: calc(192/16 * 1rem);
@@ -355,7 +356,7 @@ body {
 
 .service {
     width: 100%;
-    margin-bottom: calc(120/16 * 1rem);
+    margin-bottom: calc(160/16 * 1rem);
 
     @include respond-to(lg) {
         margin-bottom: calc(192/16 * 1rem);
@@ -371,7 +372,7 @@ body {
     }
 
     .index {
-        margin-bottom: calc(64/16 * 1rem);
+        margin-bottom: calc(24/16 * 1rem);
     }
 
     &__content {
@@ -392,11 +393,11 @@ body {
     }
 
     &__content-left {
-        display: none;
+        margin-bottom: calc(64/16 * 1rem);
 
         @include respond-to(lg) {
-            display: block;
             width: calc(50% - 40px);
+            margin-bottom: 0;
         }
     }
 
@@ -477,7 +478,7 @@ body {
 
 .faqs {
     width: 100%;
-    margin-bottom: calc(160/16 * 1rem);
+    margin-bottom: calc(192/16 * 1rem);
 
     &__wrapper {
         margin: 0 auto;
@@ -521,6 +522,10 @@ body {
 
     .index {
         margin-bottom: calc(64/16 * 1rem);
+
+        @include respond-to(lg) {
+            margin-bottom: calc(24/16 * 1rem);
+        }
     }
 
     &__text {
