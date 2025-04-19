@@ -109,6 +109,63 @@ window.addEventListener('load', () => {
     })
 })
 
+//menubtn
+const menuBtn = document.querySelector('.menu-btn');
+const headerNav = document.querySelector('.header__nav');
+menuBtn.addEventListener('click', () => {
+    if (headerNav.classList.contains('is-active')) {
+        headerNav.classList.remove('is-active');
+    } else {
+        headerNav.classList.add('is-active');
+    }
+})
 
-  
+document.querySelectorAll('.header-list__link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        console.log(targetId, targetElement);
+        
+
+        if (!targetElement) return;
+
+        const sectionTop = ( targetElement.getBoundingClientRect().top - 120 ) + window.scrollY;
+        const duration = 800;
+        smoothScroll(sectionTop, duration);
+        headerNav.classList.remove('is-active');
+    })
+});
+
+function smoothScroll(target, duration) {
+    const startPosition = window.scrollY;
+    const distance = target - startPosition;
+    let start = null;
+
+    function animation(currentTime) {
+        if (!start) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = Math.min(1, timeElapsed / duration);
+
+        const easeInOutQuad = (t) => {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        };
+
+
+        window.scrollTo(0, startPosition + distance * easeInOutQuad(run));
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    window.requestAnimationFrame(animation);
+}
+
+window.addEventListener('scroll', () => {
+    const section = document.querySelector('.service');
+    console.log(section.getBoundingClientRect().top);
+    
+})
   

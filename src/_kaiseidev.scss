@@ -70,27 +70,34 @@ body {
     }
 
     &__nav {
-        display: flex;
-        align-items: center;
-        display: none;
-        width: 50%;
-        height: 100vh;
-        background-color: #222222;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 120px;
+        right: 40px;
+        transform: translateY(20px);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        opacity: 0;
+        will-change: transform, opacity;
+        pointer-events: none;
+
+        &.is-active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
 
         .header-list {
-            display: flex;
-            flex-direction: column;
-            padding-left: 40px;
-            gap: calc(40/16 * 1rem);
+            
+            @include respond-to(lg) {
+                display: flex;
+                flex-direction: column;
+                gap: calc(16/16 * 1rem);
 
-            &__link {
-                @include worksans(48, 400);
-                text-transform: capitalize;
-                letter-spacing: -0.02em;
-                color: #ffffff;
+                &__link {
+                    @include worksans(16, 400);
+                    text-transform: capitalize;
+                    letter-spacing: -0.02em;
+                }
             }
         }
     }
@@ -107,6 +114,7 @@ body {
     }
 
     .menu-btn {
+        cursor: pointer;
 
         &__link {
             @include worksans(14, 500);
@@ -114,6 +122,16 @@ body {
             text-transform: capitalize;
             letter-spacing: -0.02em;
             display: block;
+        }
+
+        @include respond-to(lg) {
+            opacity: 1;
+            transition: opacity 0.2s;
+            will-change: opacity;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 }
@@ -222,11 +240,7 @@ body {
             line-height: 1.5;
 
             @include respond-to(lg) {
-
-                &--long {
-                    max-width: 325px;
-                    margin-bottom: calc(40/16 * 1rem);
-                }
+                margin-bottom: calc(40/16 * 1rem);
             }
         }
 
