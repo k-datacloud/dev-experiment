@@ -145,7 +145,7 @@ body {
     }
 
     .menu-btn {
-        display: none;
+        pointer-events: none;
 
         &__link {
             @include worksans(14, 500);
@@ -156,7 +156,7 @@ body {
         }
 
         @include respond-to(lg) {
-            display: block;
+            pointer-events: all;
             cursor: pointer;
             opacity: 1;
             transition: opacity 0.2s;

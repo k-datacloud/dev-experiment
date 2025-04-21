@@ -1,33 +1,4 @@
 
-// window.addEventListener('load', () => {
-//     const heroTitle = document.querySelector('.hero__title');
-//     const heroTitleLetters = document.querySelectorAll('.hero__title-letter');
-//     const rect1 = heroTitleLetters[0].getBoundingClientRect().right;
-//     const rect2 = heroTitleLetters[1].getBoundingClientRect().left;
-//     const gap = rect2 - rect1;
-//     if ( gap > 0 ) {
-//         heroTitle.style.gap = `${gap}px`;
-//         heroTitle.style.justifyContent = 'flex-start';
-//     }
-
-//     window.addEventListener('scroll', () => {
-//         const scrollY = window.scrollY;
-//         heroTitle.style.gap = `${gap - scrollY}px`;
-//         console.log(gap - scrollY);
-        
-//     })
-// })
-
-// window.addEventListener('resize', () => {
-//     const heroTitleLetters = document.querySelectorAll('.hero__title-letter');
-//     const rect1 = heroTitleLetters[0].getBoundingClientRect().right;
-//     const rect2 = heroTitleLetters[1].getBoundingClientRect().left;
-//     const gap = rect2 - rect1;
-//     console.log(gap);
-
-// })
-
-
 window.addEventListener('load', () => {
     window.addEventListener('scroll', () => {
         const underlines = document.querySelectorAll('.service-list .underline');
@@ -96,16 +67,11 @@ window.addEventListener('load', () => {
     const footerContentTop = document.querySelector('.footer__logo');
     const originalHeight = footerContentTop.getBoundingClientRect().height;
     // footerContentTop.style.height = `0px`;
-    console.log(originalHeight);
     window.addEventListener('scroll', () => {
         if ( footer.getBoundingClientRect().bottom - 100 < window.innerHeight ) {
             // footerContentTop.style.height = `${originalHeight}px`;
             footerContentTop.classList.add('is-active');
-            console.log('footer logo is in view');
-        } else {
-            console.log('footer logo is not in view');
-            // contentTop.classList.remove('is-active');
-        }
+        } 
     })
 })
 
@@ -125,9 +91,6 @@ document.querySelectorAll('.header-list__link').forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-
-        console.log(targetId, targetElement);
-        
 
         if (!targetElement) return;
 
@@ -163,9 +126,68 @@ function smoothScroll(target, duration) {
     window.requestAnimationFrame(animation);
 }
 
+
+const index = ["index", "message", "what i can do", "helpful notes", "contact"];
+const sections = [
+    document.querySelector('.message'),
+    document.querySelector('.service'),
+    document.querySelector('.faqs'),
+    document.querySelector('.footer')
+]
+
+const menuBtnLink = document.querySelector('.menu-btn__link');
+let currentIndex = 0;
+
+const checkCurrentSection = () => {
+    const scrollY = window.scrollY;
+    const triggerOffset = 100;
+    let found = false;
+  
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop - triggerOffset;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      const isLastSection = index === sections.length - 1;
+  
+      if (isLastSection && !found) {
+        // 他にどこにも属してなければ最後にしちゃう
+        if (scrollY >= sectionTop - window.innerHeight / 2) {
+          currentIndex = index + 1;
+          found = true;
+        }
+      } else if (!isLastSection && scrollY >= sectionTop && scrollY < sectionBottom && !found) {
+        currentIndex = index + 1;
+        found = true;
+      }
+    });
+  
+    // いずれのセクションにも当てはまらない（トップ付近）
+    if (!found && window.scrollY < sections[0].offsetTop - 100) {
+        currentIndex = 0;
+      }
+  
+    menuBtnLink.textContent = index[currentIndex];
+  };
+  
+  
+
 window.addEventListener('scroll', () => {
-    const section = document.querySelector('.service');
-    console.log(section.getBoundingClientRect().top);
+    if (innerWidth < 768) {
+        checkCurrentSection();
+    }
+}
     
-})
+);
+window.addEventListener('resize', () => {
+    if (innerWidth < 768) {
+        checkCurrentSection();
+    }
+}
+);
+window.addEventListener('load', () => {
+    if (innerWidth < 768) {
+        checkCurrentSection();
+    }
+}
+);
+
   
