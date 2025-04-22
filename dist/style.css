@@ -588,12 +588,9 @@ body {
 @media (min-width: 768px) {
   .faqs .accordion__question {
     cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.2s;
-    will-change: opacity;
   }
-  .faqs .accordion__question:hover {
-    opacity: 0.8;
+  .faqs .accordion__question:hover .accordion__text {
+    transform: translateX(10px);
   }
 }
 .faqs .accordion__answer {
@@ -629,6 +626,9 @@ body {
 @media (min-width: 768px) {
   .faqs .accordion__text {
     font-size: 1.125rem;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-in-out;
   }
 }
 .faqs .accordion__text--answer {
