@@ -730,6 +730,23 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         }
     }
 
+    &__content-pc {
+        display: none;
+
+        @include respond-to(lg) {
+            display: block;
+            width: fit-content;
+            height: fit-content;
+            overflow: hidden;
+            position: relative;
+        }
+
+
+        .flex {
+            display: flex;
+        }
+    }
+
     &__header {
         display: flex;
         align-items: center;
@@ -737,15 +754,38 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
         margin-bottom: 2rem;
     }
 
-    &__number-pc {
+    &__number {
         display: none;
+        overflow: hidden;
 
         @include respond-to(lg) {
             display: block;
+            width: fit-content;
             @include inter(120, 600);
             font-size: min(120px, 11.43vw);
             letter-spacing: -0.04em;
             text-transform: capitalize;
+            position: relative;
+            transform: translateY(0);
+            will-change: transform;
+
+            &--hidden {
+                position: absolute;
+                right: 0;
+                transform: translateY(0);
+                will-change: transform;
+                // animation: fadeIn 1s ease-in-out forwards;
+
+                // @keyframes fadeIn {
+                //     0% {
+                //         transform: translateY(100%);
+                //     }
+                //     100% {
+                //         transform: translateY(0);
+                //     }
+                    
+                // }
+            }
         }
     }
 
