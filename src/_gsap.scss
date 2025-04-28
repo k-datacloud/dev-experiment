@@ -36,6 +36,7 @@
         @include inter(108, 500);
         letter-spacing: -0.04em;
         text-transform: capitalize;
+        will-change: font-size;
     }
 
     &__tag {

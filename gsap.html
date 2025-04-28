@@ -115,11 +115,19 @@
             
             if (item.classList.contains('open')) {
             gsap.to(contents[index], { height: '0px', marginBottom: '0px', duration: 0.5, ease: "power2.inOut" });
-            gsap.to(titles[index], { marginBottom: '0px', duration: 0.5, ease: "power2.inOut"})
+            gsap.to(titles[index], { marginBottom: '0px', fontSize: '108px', duration: 0.5, ease: "power2.inOut"})
             item.classList.remove('open');
             } else {
-            gsap.to(contents[index], { height: height, marginBottom: '40px', duration: .7, ease: "power2.inOut" });
-            gsap.to(titles[index], { marginBottom: '64px', duration: 0.5, ease: "power2.inOut"})
+            gsap.to(contents[index], { height: height, marginBottom: '40px', duration: .5, ease: "power2.inOut" });
+            gsap.to(titles[index], { marginBottom: '64px', fontSize: '120px', duration: 0.5, ease: "power2.inOut"})
+            gsap.from(contents[index].querySelectorAll('.menu-content__item'), {
+                opacity: 0,
+                y: 20,
+                stagger: 0.3,
+                duration: 0.5,
+                delay: 0.6,
+                ease: "power4.out"
+              });
             item.classList.add('open');
             }
         });
