@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 .menu__item {
+  cursor: pointer;
   position: relative;
   padding: 40px;
 }
@@ -23,6 +24,7 @@
   color: #1d1b2e;
   letter-spacing: -0.04em;
   text-transform: capitalize;
+  will-change: font-size;
 }
 .menu__tag {
   position: absolute;
