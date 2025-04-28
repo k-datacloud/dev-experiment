@@ -230,57 +230,36 @@ window.addEventListener('scroll', () => {
     const introInner = document.querySelectorAll('.intro__inner');
     const introNumberSpan = document.querySelectorAll('.intro__number--scroll');
     const introNumberHidden = document.querySelectorAll('.intro__number--hidden');
-    const scrollY = window.scrollY;
-
-    // introInner.forEach( (item, index) => {
-    //     const itemTop = item.getBoundingClientRect().top; 
-    //     if (itemTop < window.innerHeight && itemTop >= 320) {
-    //         const moveY = (window.innerHeight - itemTop) * 0.26;
-    //         introNumberSpan[index].style.transform = `translateY(-${moveY}px)`;
-    //         introNumberHidden[index].style.transform = `translateY(-${moveY}px)`;
-    //     }
-    // })
 
     introInner.forEach((item, index) => {
         const itemTop = item.getBoundingClientRect().top;
-        const scrollY = window.scrollY;
-        const stopY = 200; // 止めたい基準位置（必要に応じて微調整してね）
-        const moveAmount = (window.innerHeight - itemTop) * 0.22;
+        const stopY = 200; // 止める位置（上から200px）
+        const range = window.innerHeight - stopY;
     
-        const baseTop = introNumberSpan[index].getBoundingClientRect().top;
-        const hiddenTop = introNumberHidden[index].getBoundingClientRect().top;
-        const diff = hiddenTop - baseTop;
+        // 対象要素
+        const numberSpan = introNumberSpan[index];
+        const numberHidden = introNumberHidden[index];
     
+        // 画面に入ってる場合
         if (itemTop < window.innerHeight && itemTop >= stopY) {
-            // スクロールとともに動かす
-            introNumberSpan[index].style.transform = `translateY(-${moveAmount}px)`;
-            introNumberHidden[index].style.transform = `translateY(-${moveAmount}px)`;
-        } else if (itemTop < stopY) {
-            // 固定位置に止める（ぴたっと揃える）
-            const fixed = (window.innerHeight - stopY) * 0.22;
-            introNumberSpan[index].style.transform = `translateY(-${fixed}px)`;
-            introNumberHidden[index].style.transform = `translateY(-${fixed}px)`;
-        } else {
-            // 画面に入る前（元の状態に戻す）
-            introNumberSpan[index].style.transform = `translateY(0px)`;
-            introNumberHidden[index].style.transform = `translateY(0px)`;
+            // 進捗率 0〜1（スクロールに応じて変化）
+            const progress = (window.innerHeight - itemTop) / range;
+            const clampedProgress = Math.min(Math.max(progress, 0), 1);
+            const translateYPercent = (1 - clampedProgress) * 100;
+    
+            numberSpan.style.transform = `translateY(-${translateYPercent}%)`;
+            numberHidden.style.transform = `translateY(-${translateYPercent}%)`;
+        }
+        // stopYより上までスクロールされたら、固定位置で止める
+        else if (itemTop < stopY) {
+            numberSpan.style.transform = `translateY(-100%)`;
+            numberHidden.style.transform = `translateY(-100%)`;
+        }
+        // まだ画面に入ってない時
+        else {
+            numberSpan.style.transform = `translateY(0%)`;
+            numberHidden.style.transform = `translateY(0%)`;
         }
     });
     
-
-    // introInner.forEach((item, index) => {
-    //     const itemTop = item.getBoundingClientRect().top;
-    //     const stopY = window.innerHeight * 0.4; // ← 高さの40%に来たら止める
-    
-    //     if (itemTop < window.innerHeight && itemTop >= stopY) {
-    //         const moveY = (window.innerHeight - itemTop) * 0.2;
-    //         introNumberSpan[index].style.transform = `translateY(-${moveY}px)`;
-    //         introNumberHidden[index].style.transform = `translateY(-${moveY}px)`;
-    //     } else if (itemTop < stopY) {
-    //         // もう固定の transform にする（動かさない）
-    //         const fixedY = (window.innerHeight - stopY) * 0.2;
-    //         introNumberSpan[index].style.transform = `translateY(-${fixedY}px)`;
-    //         introNumberHidden[index].style.transform = `translateY(-${fixedY}px)`;
-    //     }
-    // });
 })

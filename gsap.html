@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <title>Go Gsap </title>
+</head>
+<body>
+
+    <main>
+        <section class="dummy"></section>
+        <section class="menu">
+            <div class="menu__wrapper">
+                <div class="menu__item menu__item--yellow">
+                    <h2 class="menu__title">pairing</h2>
+                    <p class="menu__tag">kick it!</p>
+                    <div class="menu-content">
+                        <div class="menu-content__item">
+                            <div class="menu-content__info">
+                                <p class="menu-content__text menu-content__text--bold">Wine & Cheese</p>
+                                <p class="menu-content__text">A classic pairing of rich cheeses with a selection of red and white wines.</p>
+                            </div>
+                            <p class="menu-content__text">$45</p>
+                        </div>
+                        <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Oysters & Champagne</p>
+                              <p class="menu-content__text">Fresh oysters paired with crisp, bubbly champagne for a luxurious bite.</p>
+                            </div>
+                            <p class="menu-content__text">$38</p>
+                          </div>
+                          <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Steak & Cabernet</p>
+                              <p class="menu-content__text">A bold cabernet sauvignon perfectly matched with a tender grilled steak.</p>
+                            </div>
+                            <p class="menu-content__text">$60</p>
+                          </div>
+                    </div>
+                </div>
+                <div class="menu__item menu__item--gray">
+                    <h2 class="menu__title">dishes</h2>
+                    <p class="menu__tag">eat it!</p>
+                    <div class="menu-content">
+                        <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Truffle Pasta</p>
+                              <p class="menu-content__text">Handmade pasta tossed with creamy truffle sauce and seasonal mushrooms.</p>
+                            </div>
+                            <p class="menu-content__text">$28</p>
+                          </div>
+                          <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Grilled Ribeye</p>
+                              <p class="menu-content__text">Juicy 12oz ribeye steak, char-grilled to perfection, served with herb butter.</p>
+                            </div>
+                            <p class="menu-content__text">$52</p>
+                          </div>
+                          <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Seared Salmon</p>
+                              <p class="menu-content__text">Pan-seared salmon with a lemon butter sauce, served over a bed of quinoa.</p>
+                            </div>
+                            <p class="menu-content__text">$34</p>
+                          </div>
+                    </div>
+                </div>
+                <div class="menu__item menu__item--orange">
+                    <h2 class="menu__title">wine</h2>
+                    <p class="menu__tag">drink it!</p>
+                    <div class="menu-content">
+                        <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Chardonnay</p>
+                              <p class="menu-content__text">A crisp and buttery white wine with notes of apple, pear, and oak.</p>
+                            </div>
+                            <p class="menu-content__text">$14 / glass</p>
+                          </div>
+                          <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Pinot Noir</p>
+                              <p class="menu-content__text">A smooth and silky red, offering hints of cherry, raspberry, and earth.</p>
+                            </div>
+                            <p class="menu-content__text">$16 / glass</p>
+                          </div>
+                          <div class="menu-content__item">
+                            <div class="menu-content__info">
+                              <p class="menu-content__text menu-content__text--bold">Sauvignon Blanc</p>
+                              <p class="menu-content__text">A zesty white wine bursting with citrus, green apple, and tropical notes.</p>
+                            </div>
+                            <p class="menu-content__text">$13 / glass</p>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dummy"></section>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        document.querySelectorAll('.menu__item').forEach((item, index) => {
+
+        item.addEventListener('click', () => {
+            const titles = document.querySelectorAll('.menu__title')
+            const contents = document.querySelectorAll('.menu-content')
+            const height = contents[index].scrollHeight;
+            
+            if (item.classList.contains('open')) {
+            gsap.to(contents[index], { height: '0px', marginBottom: '0px', duration: 0.5, ease: "power2.inOut" });
+            gsap.to(titles[index], { marginBottom: '0px', duration: 0.5, ease: "power2.inOut"})
+            item.classList.remove('open');
+            } else {
+            gsap.to(contents[index], { height: height, marginBottom: '40px', duration: .7, ease: "power2.inOut" });
+            gsap.to(titles[index], { marginBottom: '64px', duration: 0.5, ease: "power2.inOut"})
+            item.classList.add('open');
+            }
+        });
+        });
+
+
+    </script>
+    
+</body>
+</html>

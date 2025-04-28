@@ -1,0 +1,93 @@
+
+
+@mixin inter($size, $weight) {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: $weight;
+    font-size: calc($size / 16 * 1rem);
+    color: #1d1b2e;
+}
+
+.menu {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        position: relative;
+        padding: 40px;
+
+        &--yellow {
+            background-color: #fcf8d5;
+        }
+
+        &--gray {
+            background-color: #bebebe;
+        }
+
+        &--orange {
+            background-color: #ff5921;
+        }
+    }
+
+    &__title {
+        @include inter(108, 500);
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+    }
+
+    &__tag {
+        position: absolute;
+        top: 20%;
+        right: 40px;
+        transform: translateY(-20%);
+        @include inter(24, 500);
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+        // transform: rotate(90deg);
+        // transform-origin: top;
+        writing-mode: vertical-rl;
+        white-space: nowrap;
+    }
+
+    .menu-content {
+        height: 0;
+        overflow: hidden;
+        padding: 0px 64px 0px 0px;
+        margin-bottom: 0;
+        will-change: height, margin-bottom;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &__item {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+        }
+
+        &__info {
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+        }
+
+        &__text {
+            @include inter(16, 400);
+            line-height: 1.4;
+
+            &--bold {
+                font-weight: 600;
+                font-size: calc(18/16 *1rem);
+            }
+        }
+    }
+
+}
+
+.dummy {
+    width: 100%;
+    height: 100vh;
+}
