@@ -8,6 +8,66 @@
     color: #1d1b2e;
 }
 
+$breakpoints: (
+    "small": 480px,
+    "medium": 768px,
+    "large": 1024px,
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    }
+}
+
+;
+
+// body {
+//     background: linear-gradient(270deg, #ffffff, #cfcfcf);
+//     background-size: 600% 600%;
+//     animation: gradientMove 15s ease infinite;
+
+//     @keyframes gradientMove {
+//         0% {
+//           background-position: 0% 50%;
+//         }
+//         50% {
+//           background-position: 100% 50%;
+//         }
+//         100% {
+//           background-position: 0% 50%;
+//         }
+//     }
+//   }
+
+.mv {
+    width: 100%;
+
+    @include respond-to(large) {
+        height: 100vh;
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+
+        @include respond-to(large) {
+            padding: 0 80px;
+        }
+    }
+
+    &__title {
+        @include inter(120, 500);
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+        will-change: font-size;
+    }
+}
+
 .menu {
 
     &__wrapper {
@@ -48,8 +108,6 @@
         @include inter(24, 500);
         letter-spacing: -0.04em;
         text-transform: capitalize;
-        // transform: rotate(90deg);
-        // transform-origin: top;
         writing-mode: vertical-rl;
         white-space: nowrap;
     }
@@ -87,6 +145,18 @@
         }
     }
 
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #1d1b2e;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 .dummy {

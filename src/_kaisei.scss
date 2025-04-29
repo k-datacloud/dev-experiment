@@ -56,6 +56,23 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     border-bottom: solid 1px #000000;
 }
 
+
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #333333;
+    transform: translate(0, 0);
+    pointer-events: none;
+    will-change: transform;
+}
+
+
 .header {
     width: 100%;
     position: fixed;
