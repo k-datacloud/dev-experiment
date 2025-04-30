@@ -273,6 +273,7 @@ let currentY = 0;
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    cursor.style.opacity = '1';
     console.log(mouseX, mouseY, currentX, currentY);
     
 })

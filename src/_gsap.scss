@@ -5,7 +5,7 @@
     font-style: normal;
     font-weight: $weight;
     font-size: calc($size / 16 * 1rem);
-    color: #1d1b2e;
+    color: #ffffff;
 }
 
 $breakpoints: (
@@ -65,6 +65,7 @@ $breakpoints: (
         letter-spacing: -0.04em;
         text-transform: capitalize;
         will-change: font-size;
+        color: #222;
     }
 }
 
@@ -78,18 +79,24 @@ $breakpoints: (
     &__item {
         cursor: pointer;
         position: relative;
-        padding: 40px;
+        padding: 64px 40px;
+        filter: brightness(1.0);
+        will-change: filter;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
 
         &--yellow {
-            background-color: #fcf8d5;
+            background-color: #2e2a3b;
         }
 
         &--gray {
-            background-color: #bebebe;
+            background-color: #1d5c63;
         }
 
         &--orange {
-            background-color: #ff5921;
+            background-color: #5c1a1b;
         }
     }
 
@@ -151,12 +158,26 @@ $breakpoints: (
     position: fixed;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #1d1b2e;
+    // background-color: rgba($color: #dddddd, $alpha: 1);
+    border: 2px solid #dddddd;
     pointer-events: none;
     z-index: 9999;
+    opacity: 0;
+    will-change: opacity, top, left;
+
+    &__label {
+        @include inter(12, 400);
+        color: #ffffff;
+        text-transform: capitalize;
+        letter-spacing: -0.02em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .dummy {

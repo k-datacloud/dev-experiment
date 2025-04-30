@@ -20,10 +20,11 @@
   font-style: normal;
   font-weight: 500;
   font-size: 7.5rem;
-  color: #1d1b2e;
+  color: #ffffff;
   letter-spacing: -0.04em;
   text-transform: capitalize;
   will-change: font-size;
+  color: #222;
 }
 
 .menu__wrapper {
@@ -33,23 +34,28 @@
 .menu__item {
   cursor: pointer;
   position: relative;
-  padding: 40px;
+  padding: 64px 40px;
+  filter: brightness(1);
+  will-change: filter;
+}
+.menu__item:hover {
+  filter: brightness(1.2);
 }
 .menu__item--yellow {
-  background-color: #fcf8d5;
+  background-color: #2e2a3b;
 }
 .menu__item--gray {
-  background-color: #bebebe;
+  background-color: #1d5c63;
 }
 .menu__item--orange {
-  background-color: #ff5921;
+  background-color: #5c1a1b;
 }
 .menu__title {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 6.75rem;
-  color: #1d1b2e;
+  color: #ffffff;
   letter-spacing: -0.04em;
   text-transform: capitalize;
   will-change: font-size;
@@ -63,7 +69,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 1.5rem;
-  color: #1d1b2e;
+  color: #ffffff;
   letter-spacing: -0.04em;
   text-transform: capitalize;
   writing-mode: vertical-rl;
@@ -94,7 +100,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
-  color: #1d1b2e;
+  color: #ffffff;
   line-height: 1.4;
 }
 .menu .menu-content__text--bold {
@@ -106,12 +112,28 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: #1d1b2e;
+  border: 2px solid #dddddd;
   pointer-events: none;
   z-index: 9999;
+  opacity: 0;
+  will-change: opacity, top, left;
+}
+.cursor__label {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #ffffff;
+  color: #ffffff;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .dummy {
