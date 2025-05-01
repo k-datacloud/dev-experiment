@@ -32,7 +32,6 @@
   flex-direction: column;
 }
 .menu__item {
-  cursor: pointer;
   position: relative;
   padding: 64px 40px;
   filter: brightness(1);
@@ -75,6 +74,9 @@
   writing-mode: vertical-rl;
   white-space: nowrap;
 }
+.menu .menu-header {
+  cursor: pointer;
+}
 .menu .menu-content {
   height: 0;
   overflow: hidden;
@@ -82,13 +84,19 @@
   margin-bottom: 0;
   will-change: height, margin-bottom;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
 }
+.menu .menu-content__context {
+  width: 50%;
+}
 .menu .menu-content__item {
+  cursor: pointer;
   display: flex;
   align-items: end;
   justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: solid 1px #ffffff;
 }
 .menu .menu-content__info {
   display: flex;

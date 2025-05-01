@@ -77,7 +77,6 @@ $breakpoints: (
     }
 
     &__item {
-        cursor: pointer;
         position: relative;
         padding: 64px 40px;
         filter: brightness(1.0);
@@ -119,6 +118,10 @@ $breakpoints: (
         white-space: nowrap;
     }
 
+    .menu-header {
+        cursor: pointer;
+    }
+
     .menu-content {
         height: 0;
         overflow: hidden;
@@ -126,13 +129,20 @@ $breakpoints: (
         margin-bottom: 0;
         will-change: height, margin-bottom;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         gap: 24px;
 
+        &__context {
+            width: 50%;
+        }
+
         &__item {
+            cursor: pointer;
             display: flex;
             align-items: end;
             justify-content: space-between;
+            padding: calc(24/16 * 1rem) 0;
+            border-bottom: solid 1px #ffffff;
         }
 
         &__info {
