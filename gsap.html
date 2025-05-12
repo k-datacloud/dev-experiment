@@ -16,9 +16,17 @@
 
       <section class="mv">
         <div class="mv__wrapper">
-          <h2 class="mv__title mv__title--top">We provide products</h2>
-          <h2 class="mv__title mv__title--middle">which is functional and</h2>
-          <h2 class="mv__title mv__title--bottom">easy to use.</h2>
+          <div class="mv__img">
+            <img src="ChatGPT Image May 12, 2025, 09_40_04 AM.png" alt="">
+          </div>
+          <h2 class="mv__title">reset in nature</h2>
+          <div class="opening-animation">
+            <div class="bg-item"></div>
+            <div class="bg-item"></div>
+            <div class="bg-item"></div>
+            <div class="bg-item"></div>
+            <div class="bg-item"></div>
+          </div>
         </div>
       </section>
 
@@ -175,19 +183,8 @@
     <script>
 
         gsap.registerPlugin(ScrollTrigger);
+        const tl = gsap.timeline();
 
-        gsap.to('.mv__title--middle', 
-          {
-            x: 100,
-            ease: "power2.inOut",
-            scrollTrigger: {
-              trigger: '.mv__wrapper',
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: .5
-            }
-          }
-        )
 
         const cursor = document.querySelector('.cursor')
         const cursorLabel = document.querySelector('.cursor__label')
@@ -308,8 +305,6 @@
           }
         })
 
-        const tl = gsap.timeline();
-
         gsap.set('.shape', {
           rotationX: -90,
           rotationY: 0,
@@ -336,6 +331,30 @@
           duration: 0.2,
           ease: 'power2.inOut'
         });
+
+        const bgItem = document.querySelectorAll('.mv .bg-item')
+        const mvTitle = document.querySelector('.mv__title');
+        console.log(bgItem);
+        
+        tl.to ( '.bg-item', {
+          scaleY: 0,
+          transformOrigin: 'top',
+          duration: .8,
+          ease: "power1.in",
+          stagger: {
+            from: "random",
+            each: .2,
+          },
+          onComplete: () => {
+            document.querySelector('.mv .opening-animation').style.visibility = 'hidden';
+          }
+        })
+        .from(mvTitle, {
+          x: 20,
+          opacity: 0,
+          duration: 1,
+          ease: "power1.inout"
+        })
         
         
         

@@ -353,7 +353,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
     &__img {
         margin-bottom: 1.5rem;
-        perspective: 1000px;
+        perspective: 500px;
 
         @include respond-to(lg) {
             transform: scale(1);
@@ -368,13 +368,12 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
 
             &:hover .circle-mask {
                 transform: scale(1);
-                clip-path: inset(0 0 0 10% round 120px 0 0 120px);
+                clip-path: circle(100% at 100% 0%);
             }
 
             &:hover .member__img-border {
-                transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg);
+                transform: translate(-50%, -40%) rotateX(0deg);
                 opacity: 1;
-                transition-delay: .5s;
             }
         }
 
@@ -392,32 +391,17 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba($color: #000000, $alpha: .4);
+            background-color: rgba($color: #000000, $alpha: .5);
             background-size: cover;
-            clip-path: circle(0%, at 100% 0%);
+            clip-path: circle(100% at 100% 0%);
             transform-origin: top right;
             transform: scale(0);
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: clip-path 0.3s ease-in, transform 0.5s ease-in;
             z-index: 2;
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
         }
     }
-
-    // @keyframes maskopen {
-    //             0% {
-    //                 clip-path: circle(0%, at 100% 0%);
-    //                 transform: scale(0);
-    //             }
-    //             60% {
-    //                 clip-path: circle(150%, at 100% 0%);
-    //                 transform: scale(1);
-    //             }
-    //             100% {
-    //                 clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 20% 100%, 10% 50%);
-    //                 transform: scale(1);
-    //             }
-    //         }
 
     &__img-border {
 
@@ -425,7 +409,7 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             position: absolute;
             bottom: 0;
             left: 50%;
-            transform: translate(-50%, -10%) translate3d(0, 0, 0px) rotate(20deg);
+            transform: translate(-50%, -2%) rotateX(30deg) rotateY(50deg) ;
             border: solid 1px #ffffff;
             width: 100px;
             height: 100px;
@@ -435,7 +419,18 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
             align-items: center;
             z-index: 3;
             opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform-origin: left center;
+            transition: transform 0.7s ease, opacity 0.7s ease;
+
+            &:hover {
+                background-color: #ffffff;
+            }
+
+            &:hover .member__img-label {
+                color: #0d2044;
+            }
+
+
         }
     }
 
