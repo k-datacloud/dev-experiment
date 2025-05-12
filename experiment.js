@@ -101,3 +101,23 @@ window.addEventListener('scroll', () => {
         scrollFontchangeText.style.transform = `translateY(0px)`;
     }
 })
+
+//changefixed
+window.addEventListener('scroll', () => {
+    const chairSection = document.querySelector('.chair');
+    const backgroundImage = document.querySelectorAll('.background-image__img img');
+    let positionY = chairSection.getBoundingClientRect().bottom + window.scrollY;
+    const height = window.innerHeight;
+    if ( window.scrollY > positionY ) {
+        backgroundImage[0].classList.remove('active');
+        backgroundImage[1].classList.add('active');
+        // changefixed.classList.add('active');
+        console.log("fixed");
+        
+    } else {
+        backgroundImage[0].classList.add('active');
+        backgroundImage[1].classList.remove('active');
+        // changefixed.classList.remove('active');
+        console.log("not fixed");
+    }
+})

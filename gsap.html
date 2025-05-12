@@ -144,10 +144,30 @@
             <span class="cursor__label">open</span>
           </div>
       </section>
+
+      <section class="hover-play">
+        <div class="hover-play__wrapper">
+          <!-- <div class="hover-play__img">
+            <img src="image 35.png" alt="">
+            <div class="hover-play__img-border">
+                <span class="hover-play__img-label">about</span>
+            </div>
+          </div> -->
+          <div class="container">
+            <div class="shape"></div>
+          </div>
+        </div>
+      </section>
       
 
       <section class="dummy"></section>
     </main>
+
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <h2 class="footer__title">enjoy your stay</h2>
+      </div>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
@@ -254,6 +274,68 @@
             })
           })
         })
+
+        // const footeranimation = () => {
+        //   const footer = document.querySelector('.footer');
+        //   const footerTitle = document.querySelector('.footer__title');
+        //   const scrollY = window.scrollY;
+        //   const windowHeight = window.innerHeight;
+        //   const elementPosition = footer.getBoundingClientRect().top + window.scrollY;
+        //   if ( scrollY >= elementPosition - 200 ) {
+        //     console.log("true");
+        //     // footerTitle.classList.add('is-active');
+        //     gsap.to(footerTitle, {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: .7,
+        //       ease: "power2.out"
+        //     })
+        //   } else {
+        //     console.log("false");
+        //     footerTitle.classList.remove('is-active');
+        //   }
+        // }
+
+        gsap.from('.footer__title', {
+          y: 40,
+          opacity: 0,
+          duration: .7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.footer',
+            start: 'top bottom-=400',
+            toggleActions: 'play none none reverse'
+          }
+        })
+
+        const tl = gsap.timeline();
+
+        gsap.set('.shape', {
+          rotationX: -90,
+          rotationY: 0,
+          rotationZ: 0,
+          transformOrigin: 'center bottom',
+          scale: 0.5
+        });
+
+        tl.from('.shape', {
+          rotateX: -90,           // 奥に寝かせた状態から
+          scale: 0.5,             // 小さく
+          transformOrigin: 'center bottom',
+          duration: 0.6,
+          ease: 'power2.out'
+        })
+        .to('.shape', {
+          rotateX: 0,             // 起き上がってくる
+          scale: .5,             // 少し拡大
+          duration: 0.4,
+          ease: 'power1.out'
+        })
+        .to('.shape', {
+          scale: 1,               // 元の大きさに戻す
+          duration: 0.2,
+          ease: 'power2.inOut'
+        });
         
         
         

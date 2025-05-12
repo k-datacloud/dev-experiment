@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -23,7 +24,9 @@
         <main class="main">
 
             <section class="scroll-fontchange">
-                <p class="scroll-fontchange__text">i am kaisei</p>
+                <div class="scroll-fontchange__text">
+                    
+                </div>
             </section>
 
             <section class="hero">
@@ -51,6 +54,10 @@
                         <div class="member__item">
                             <div class="member__img">
                                 <img src="image 20.png" alt="">
+                                <div class="circle-mask"></div>
+                                <div class="member__img-border">
+                                    <span class="member__img-label">about</span>
+                                </div>
                             </div>
                             <p class="member__name">安岡奈央</p>
                             <p class="member__role">デザイナー／イラストレーター／もちもち研究家</p>
@@ -69,47 +76,59 @@
                     </div>
                 </div>
             </section>
-    
-            <section class="company">
-                <div class="company__wrapper">
-                    <div class="eyecatch">
-                        <!-- <img src="image 30.png" alt="landscape of studio"> -->
-                    </div>
-                </div>
-            </section>
-    
-            <section class="background-image">
-                <div class="background-image__img">
-                    <!-- <img src="image.png" alt=""> -->
-                </div>
-            </section>
-    
-            <section class="contact">
-                <div class="box2">
-                    <!-- <div class="scrollcount">
-                        <p class="scrollcount__text--absolute-num">
-                        </p>
-                        <div>スクロール量<span class="scrollamount"></span>
+
+            <section class="card">
+                <div class="card__wrapper">
+                    <div class="card-item">
+                        <div class="mask"></div>
+                        <div class="card-item__img">
+                            <img src="Japanese Yen.svg" alt="">
                         </div>
-                    </div> -->
-                    <div class="divider">
-                        <span class="scrollcount__text--absolute-num"></span>
-                        <span class="scrollamount">scroll amount</span>
-                    </div>
-                    <div class="divider">
-                        <span class="scrollcount__text--absolute-num"></span>
-                        <span class="scrollamount">scroll amount</span>
-                    </div>
-                    <div class="divider">
-                        <span class="scrollcount__text--absolute-num"></span>
-                        <span class="scrollamount">scroll amount</span>
+                        <h2 class="card-item__title">treatment in japan</h2>
+                        <p class="card-item__text">Our skilled, experienced and passionate vocal surgery specialists are here.</p>
+                        <a class="card-item__btn" href="">
+                            <span class="card-item__btn-label">view more</span>
+                        </a>
                     </div>
                 </div>
             </section>
+    
+            
+
+            <section class="dummy"></section>
 
         </main>
     </div>
 
-    <script src="experiment.js"></script>
+    <!-- <script src="experiment.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  const overlay = document.querySelector('.card-item .mask');
+  const container = document.querySelector('.card-item');
+  console.log(container, overlay);
+  
+
+  const showOverlay = () => {
+    // ステップ1: 円が広がる
+    gsap.to(overlay, {
+      duration: 0.7,
+      clipPath: 'circle(140% at 100% 0%)',
+      scale: 1,
+      ease: 'power2.out',
+    });
+  };
+
+  const hideOverlay = () => {
+    // 戻す
+    gsap.to(overlay, {
+      duration: 0.4,
+      clipPath: 'circle(0% at 100% 0%)',
+      ease: 'power2.in'
+    });
+  };
+
+  container.addEventListener('mouseenter', showOverlay);
+  container.addEventListener('mouseleave', hideOverlay);
+</script>
 </body>
 </html>

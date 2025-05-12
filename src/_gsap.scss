@@ -5,7 +5,7 @@
     font-style: normal;
     font-weight: $weight;
     font-size: calc($size / 16 * 1rem);
-    color: #ffffff;
+    color: #222222;
 }
 
 $breakpoints: (
@@ -54,6 +54,7 @@ $breakpoints: (
     &__wrapper {
         width: 100%;
         height: 100%;
+        overflow: hidden;
 
         @include respond-to(large) {
             padding: 0 80px;
@@ -105,6 +106,7 @@ $breakpoints: (
         letter-spacing: -0.04em;
         text-transform: capitalize;
         will-change: font-size;
+        color: #ffffff;
     }
 
     &__tag {
@@ -117,6 +119,7 @@ $breakpoints: (
         text-transform: capitalize;
         writing-mode: vertical-rl;
         white-space: nowrap;
+        color: #ffffff;
     }
 
     .menu-header {
@@ -155,6 +158,7 @@ $breakpoints: (
         &__text {
             @include inter(16, 400);
             line-height: 1.4;
+            color: #ffffff;
 
             &--bold {
                 font-weight: 600;
@@ -191,7 +195,101 @@ $breakpoints: (
     }
 }
 
+.hover-play {
+
+    .container {
+        perspective: 1000px;
+
+        &:hover .shape {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+
+        .shape {
+            width: 200px;
+            height: 200px;
+            background: black;
+            border-radius: 50%;
+            // transform-origin: center bottom;
+            // transform: rotateX(100deg);
+            // transition: all 0.8s ease;
+        }
+    }
+
+    &__img {
+        position: relative;
+        width: 30%;
+        perspective: 450px;
+
+        &:hover .hover-play__img-border {
+            opacity: 1;
+            transform: translate(-50%, -20%) translate3d(0, 0, 0) rotateY(0deg);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__img-border {
+
+        @include respond-to(large) {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -20%) translate3d(0, 20px) rotateY(45deg);
+            border: solid 1px #312d2b;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            opacity: 0;
+            transition: transform 0.5s ease;
+        }
+    }
+
+    // &__img-label {
+
+    //     // @include respond-to(large) {
+            
+    //     // }
+    // }
+}
+
 .dummy {
     width: 100%;
     height: 100vh;
+}
+
+.footer {
+    width: 100%;
+    height: 100vh;
+    
+    &__wrapper {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        padding: 40px;
+    }
+
+    &__title {
+        @include inter(140, 500);
+        letter-spacing: -0.04em;
+        text-transform: capitalize;
+        position: relative;
+        // transform: translateY(20px);
+        // opacity: 0;
+        // transition: transform 0.7s ease, opacity 0.7s ease;
+        will-change: transform, opacity;
+        color: #222222;
+
+        // &.is-active {
+        //     transform: translateY(0);
+        //     opacity: 1;
+        // }
+    }
 }
