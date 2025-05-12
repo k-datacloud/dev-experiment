@@ -12,14 +12,38 @@
 </head>
 <body>
 
+    <header class="header">
+      <div class="header__wrapper">
+        <h1 class="header__title">campfield</h1>
+        <!-- <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item"><a href="">home</a></li>
+            <li class="header__item"><a href="">about</a></li>
+            <li class="header__item"><a href="">shop</a></li>
+            <li class="header__item"><a href="">contact</a></li>
+          </ul>
+        </nav> -->
+        <a class="explore-btn" href="">explore gear
+          <img class="explore-btn__icon" src="solar_fire-bold.svg" alt="">
+        </a>
+      </div>
+    </header>
+
     <main>
 
       <section class="mv">
         <div class="mv__wrapper">
-          <div class="mv__img">
+          <div class="mv__img--pc">
             <img src="ChatGPT Image May 12, 2025, 09_40_04 AM.png" alt="">
           </div>
-          <h2 class="mv__title">reset in nature</h2>
+          <div class="mv__info">
+            <h2 class="mv__title">reset <br class="space--sp">in nature</h2>
+            <p class="mv__text">escape the degital noise</p>
+            <a class="explore-btn explore-btn--sp" href="">explore gear
+              <img src="solar_fire-bold.svg" alt="">
+            </a>
+          </div>
+          <p class="mv__tag">captured in tokyo / april 2025</p>
           <div class="opening-animation">
             <div class="bg-item"></div>
             <div class="bg-item"></div>
@@ -333,8 +357,9 @@
         });
 
         const bgItem = document.querySelectorAll('.mv .bg-item')
-        const mvTitle = document.querySelector('.mv__title');
-        const mvImg = document.querySelector('.mv__img img');
+        const mvTitle = document.querySelector('.mv__info');
+        const mvImg = document.querySelector('.mv__img--pc img');
+        const header = document.querySelector('.header');
         
         tl.to ( '.bg-item', {
           scaleY: 0,
@@ -358,8 +383,14 @@
           x: 20,
           opacity: 0,
           duration: 1,
-          ease: "power1.inout"
+          ease: "power1.out"
         })
+        .from(header, {
+          y: 20,
+          opacity: 0,
+          duration: .7,
+          ease: "power1.out"
+        },)
         
         
         
