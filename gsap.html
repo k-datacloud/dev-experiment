@@ -334,7 +334,7 @@
 
         const bgItem = document.querySelectorAll('.mv .bg-item')
         const mvTitle = document.querySelector('.mv__title');
-        console.log(bgItem);
+        const mvImg = document.querySelector('.mv__img img');
         
         tl.to ( '.bg-item', {
           scaleY: 0,
@@ -348,6 +348,11 @@
           onComplete: () => {
             document.querySelector('.mv .opening-animation').style.visibility = 'hidden';
           }
+        })
+        .from(mvImg, {
+          scale: 1.1,
+          duration: .7,
+          ease: "power1.out"
         })
         .from(mvTitle, {
           x: 20,
