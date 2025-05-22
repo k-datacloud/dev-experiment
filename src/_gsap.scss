@@ -302,7 +302,7 @@ $breakpoints: (
 
     &__title {
         @include inter(64, 600);
-        letter-spacing: -0.04em;
+        letter-spacing: -0.01em;
         text-transform: capitalize;
         will-change: font-size;
         line-height: 1;
