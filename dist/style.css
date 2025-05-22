@@ -614,26 +614,38 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   width: fit-content;
   height: fit-content;
   position: relative;
+  margin-bottom: 40px;
+  overflow: hidden;
 }
-.hover-practice-space .link-wrapper:hover::after {
+.hover-practice-space .link-wrapper--scale-hover:hover::after {
   transform: scaleY(1);
   transform-origin: top;
-  transition: transform 0.8s ease;
+  transition: transform 0.5s ease;
 }
-.hover-practice-space .link-wrapper::after {
+.hover-practice-space .link-wrapper--scale-hover::after {
   content: "";
   display: block;
   width: 100%;
   height: 100%;
+  clip-path: circle(0% at 100% 50%);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  transform: scaleY(0);
+  transform: scale(0);
   background-color: #ffd209;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   transform-origin: bottom;
   will-change: transform;
+}
+.hover-practice-space .link-wrapper--up:hover .hover-link--button::after {
+  clip-path: ellipse(100% 150% at 50% 100%);
+}
+.hover-practice-space .link-wrapper--up:hover .hover-link__label--visible {
+  transform: translateY(-100%);
+}
+.hover-practice-space .link-wrapper--up:hover .hover-link__label--hidden {
+  transform: translate(-50%, 0%);
 }
 .hover-practice-space .hover-link {
   font-family: "Inter", sans-serif;
@@ -642,6 +654,54 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
   font-size: 2.5rem;
   color: #222222;
   text-decoration: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+.hover-practice-space .hover-link--button {
+  padding: 16px 32px;
+  border-radius: 40px;
+  background-color: #ffe25f;
+}
+.hover-practice-space .hover-link--button::after {
+  content: "";
+  display: block;
+  clip-path: ellipse(80% 0% at 50% 100%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40px;
+  transform-origin: bottom;
+  background-color: #312d2b;
+  transition: clip-path 0.5s ease;
+  will-change: clip-path;
+}
+.hover-practice-space .hover-link__label {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #222222;
+  color: #312d2b;
+  text-decoration: none;
+}
+.hover-practice-space .hover-link__label--visible {
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+.hover-practice-space .hover-link__label--hidden {
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  color: #ffffff;
+  transform: translate(-50%, 100%);
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 .footer {
