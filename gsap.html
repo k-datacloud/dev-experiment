@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <title>Go Gsap </title>
+    <title>Go Gsap</title>
 </head>
 <body>
 
@@ -60,9 +60,15 @@
         </div>
       </section>
 
-      <section class="">
-        <div></div>
+      <section class="about">
+        <div class="about__wrapper">
+          <div class="text-wrapper">
+            <p class="about__text">We design spaces for people. No matter the scale of the projects, our down-to-earth approach stays the same. We listen first, design second. We take the time to understand how you live, work, and move through your space.</p>
+          </div>
+        </div>
       </section>
+
+      <section class="dummy"></section>
 
       <section class="menu">
 
@@ -387,6 +393,40 @@
           duration: .7,
           ease: "power1.out"
         },)
+
+        const aboutText = document.querySelector('.about__text');
+        const letters = aboutText.textContent.trim().split("");
+        aboutText.innerHTML = "";
+        letters.forEach((letter, index) => {
+          const span = document.createElement("span");
+          span.classList.add("letter");
+          span.textContent = letter;
+          if (letter === " ") {
+            span.classList.add("space");
+          }
+          aboutText.appendChild(span);
+        })
+        console.log(letters);
+        
+        
+
+        gsap.from('.letter', {
+          y: 20,
+          opacity: 0,
+          duration: 1,
+          stagger: {
+            from: "start",
+            amount: 1,
+            ease: "power1.out"
+          },
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: '.about',
+            start: 'top bottom-=200',
+            toggleActions: 'play none none reverse',
+            markers: true
+          }
+        })
         
         
         

@@ -389,6 +389,46 @@ $breakpoints: (
     }
 }
 
+.about {
+
+    &__wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        @include respond-to(large) {
+            padding: 0 40px;
+        }
+    }
+
+    .text-wrapper {
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__text {
+        width: 40%;
+        @include inter(24, 400);
+        letter-spacing: -0.04em;
+        color: #222222;
+        transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+        will-change: transform, opacity;
+
+        @include respond-to(large) {
+            font-size: calc(24/16 * 1rem);
+        }
+    }
+
+    .letter {
+        display: inline-block;
+    }
+
+    .space {
+        display: inline-block;
+        width: 0.5em; // Adjust the width as needed for spacing
+    }
+}
+
 .menu {
 
     display: none;
