@@ -374,11 +374,16 @@
   }
 }
 .about .text-wrapper {
+  width: fit-content;
+}
+.about .text-mask {
   overflow: hidden;
   position: relative;
 }
 .about__text {
-  width: 40%;
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -386,8 +391,7 @@
   color: #222222;
   letter-spacing: -0.04em;
   color: #222222;
-  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
-  will-change: transform, opacity;
+  will-change: transform;
 }
 @media (min-width: 1024px) {
   .about__text {

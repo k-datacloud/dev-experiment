@@ -63,7 +63,17 @@
       <section class="about">
         <div class="about__wrapper">
           <div class="text-wrapper">
-            <p class="about__text">We design spaces for people. No matter the scale of the projects, our down-to-earth approach stays the same. We listen first, design second. We take the time to understand how you live, work, and move through your space.</p>
+            <div class="text-mask">
+            <p class="about__text">We design spaces for people. No matter the scale of the</p>
+            </div>
+            <div class="text-mask">
+              <p class="about__text">projects, our down-to-earth approach stays the same.</p>
+            </div>
+            <div class="text-mask">
+              <p class="about__text">We listen first, design second. We take the time to understand</p>
+            </div>
+            <div class="text-mask">
+              <p class="about__text">how you live, work, and move through your space.</p>
           </div>
         </div>
       </section>
@@ -394,39 +404,50 @@
           ease: "power1.out"
         },)
 
-        const aboutText = document.querySelector('.about__text');
-        const letters = aboutText.textContent.trim().split("");
-        aboutText.innerHTML = "";
-        letters.forEach((letter, index) => {
-          const span = document.createElement("span");
-          span.classList.add("letter");
-          span.textContent = letter;
-          if (letter === " ") {
-            span.classList.add("space");
-          }
-          aboutText.appendChild(span);
-        })
-        console.log(letters);
+        // const aboutText = document.querySelector('.about__text');
+        // const letters = aboutText.textContent.trim().split("");
+        // aboutText.innerHTML = "";
+        // letters.forEach((letter, index) => {
+        //   const span = document.createElement("span");
+        //   span.classList.add("letter");
+        //   span.textContent = letter;
+        //   if (letter === " ") {
+        //     span.classList.add("space");
+        //   }
+        //   aboutText.appendChild(span);
+        // })
+        // console.log(letters);
         
+        const aboutText = document.querySelectorAll('.about__text');
+        aboutText.forEach((text) => {
+          const height = text.getBoundingClientRect().height;
+          console.log(height);
+          
+          // document.querySelectorAll('.text-mask').forEach((mask) => {
+          //   mask.style.height = height + 'px';
+          // })
+        })
         
 
-        gsap.from('.letter', {
-          y: 20,
-          opacity: 0,
-          duration: 1,
+        gsap.from('.about__text', {
+          yPercent: 100,
+          duration: .3,
           stagger: {
             from: "start",
-            amount: 1,
-            ease: "power1.out"
+            amount: 0.4,
           },
           ease: "power1.out",
           scrollTrigger: {
             trigger: '.about',
-            start: 'top bottom-=200',
+            start: 'top 75%',
+            end: 'top 40%',
             toggleActions: 'play none none reverse',
+            // scrub: true,
             markers: true
           }
         })
+
+        ScrollTrigger.refresh();
         
         
         

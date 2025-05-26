@@ -390,6 +390,7 @@ $breakpoints: (
 }
 
 .about {
+    // height: 100vh;
 
     &__wrapper {
         width: 100%;
@@ -402,17 +403,22 @@ $breakpoints: (
     }
 
     .text-wrapper {
+        width: fit-content;
+    }
+
+    .text-mask {
         overflow: hidden;
         position: relative;
     }
 
     &__text {
-        width: 40%;
+        width: 100%;
+        display: inline-block;
+        white-space: nowrap;
         @include inter(24, 400);
         letter-spacing: -0.04em;
         color: #222222;
-        transition: transform 0.5s ease-in, opacity 0.5s ease-in;
-        will-change: transform, opacity;
+        will-change: transform;
 
         @include respond-to(large) {
             font-size: calc(24/16 * 1rem);
