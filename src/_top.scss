@@ -831,6 +831,73 @@ h1, h2, h3, h4, h5, h6, section, header, footer, article, nav, div, ul, li, p, a
     }
 }
 
+
+.practice-space {
+    width: 100%;
+
+    &__wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 160px 80px;
+        position: relative;
+    }
+
+    .scroll-bar {
+        position: absolute;
+        width: 40px;
+        height: 120px;
+
+        &__bar {
+            width: 11px;
+            height: 120px;
+            clip-path: inset(0 5px 0 5px);
+            background-color: #312d2b;
+        }
+
+        &__circle {
+            width: 11px;
+            height: 11px;
+            background-color: #312d2b;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            transform: translate(0, 0);
+            opacity: 1;
+            will-change: transform, opacity;
+            animation: scrollCircle 3s ease infinite;
+        }
+
+        &__text {
+            @include inter(16, 400);
+            color: #312d2b;
+            letter-spacing: -0.04em;
+            line-height: 1.5;
+            text-transform: capitalize;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            writing-mode: vertical-rl;
+        }
+
+        @keyframes scrollCircle {
+            0% {
+                transform: translate(0, 0);
+            }
+            // 80% {
+            //     transform: translate(0, 120px);
+            //     // opacity: 0.5;
+            // }
+            100% {
+                transform: translate(0, 120px);
+            }
+        }
+    }
+}
+
+
+
+
+
 .footer {
     width: 100%;
     background-color: #dad6cf;
