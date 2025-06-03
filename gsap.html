@@ -78,6 +78,16 @@
         </div>
       </section>
 
+      <section class="concept">
+        <div class="concept__wrapper">
+          <h2 class="concept__title">
+            <span class="concept__line">unlock your limited belief</span>
+            <span class="concept__line">to discover your true potential</span>
+            <span class="concept__line">to unleash your creativity</span>
+          </h2>
+        </div>
+      </section>
+
       <section class="dummy"></section>
 
       <section class="menu">
@@ -216,12 +226,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script> 
     <script>
 
+
+        // lenis
+        const lenis = new Lenis({
+          autoRaf: true,
+          duration: 1.5,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smooth: true,
+          smoothTouch: false,
+          touchMultiplier: 1,
+        });
+
+
+
+
+        // gsap
         gsap.registerPlugin(ScrollTrigger);
         const tl = gsap.timeline();
-
-
         const cursor = document.querySelector('.cursor')
         const cursorLabel = document.querySelector('.cursor__label')
         document.querySelectorAll('.menu__item').forEach((item, index) => {
@@ -308,27 +332,6 @@
           })
         })
 
-        // const footeranimation = () => {
-        //   const footer = document.querySelector('.footer');
-        //   const footerTitle = document.querySelector('.footer__title');
-        //   const scrollY = window.scrollY;
-        //   const windowHeight = window.innerHeight;
-        //   const elementPosition = footer.getBoundingClientRect().top + window.scrollY;
-        //   if ( scrollY >= elementPosition - 200 ) {
-        //     console.log("true");
-        //     // footerTitle.classList.add('is-active');
-        //     gsap.to(footerTitle, {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: .7,
-        //       ease: "power2.out"
-        //     })
-        //   } else {
-        //     console.log("false");
-        //     footerTitle.classList.remove('is-active');
-        //   }
-        // }
-
         gsap.from('.footer__title', {
           y: 40,
           opacity: 0,
@@ -340,33 +343,6 @@
             toggleActions: 'play none none reverse'
           }
         })
-
-        gsap.set('.shape', {
-          rotationX: -90,
-          rotationY: 0,
-          rotationZ: 0,
-          transformOrigin: 'center bottom',
-          scale: 0.5
-        });
-
-        tl.from('.shape', {
-          rotateX: -90,           // 奥に寝かせた状態から
-          scale: 0.5,             // 小さく
-          transformOrigin: 'center bottom',
-          duration: 0.6,
-          ease: 'power2.out'
-        })
-        .to('.shape', {
-          rotateX: 0,             // 起き上がってくる
-          scale: .5,             // 少し拡大
-          duration: 0.4,
-          ease: 'power1.out'
-        })
-        .to('.shape', {
-          scale: 1,               // 元の大きさに戻す
-          duration: 0.2,
-          ease: 'power2.inOut'
-        });
 
         const bgItem = document.querySelectorAll('.mv .bg-item')
         const mvTitle = document.querySelector('.mv__info');
@@ -443,9 +419,40 @@
             end: 'top 40%',
             toggleActions: 'play none none reverse',
             // scrub: true,
+            // markers: true
+          }
+        })
+
+        // window.addEventListener('scroll', () => {
+        //   document.querySelectorAll('.concept__line').forEach((line, index) => {
+        //   const scrollY = window.scrollY;
+        //   const position = line.getBoundingClientRect().top + scrollY;
+        //   const offset = window.innerHeight / 2;
+        //   if ( scrollY > position - offset) {
+        //     line.style.opacity = 1;
+        //   } else {
+        //     line.style.opacity = .6; 
+        //   }
+        //   })
+        // })
+
+        document.querySelectorAll('.concept__line').forEach((line, index) => {
+          gsap.from(line, {
+          opacity: .4,
+          // y: 10,
+          duration: 1,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: line,
+            start: 'top 80%',
+            // end: 'top 60%',
+            toggleActions: 'play none none reverse',
+            // scrub: true,
             markers: true
           }
         })
+        })
+
 
         ScrollTrigger.refresh();
         
