@@ -71,12 +71,8 @@ const toggleBtn = document.querySelector(".js-open-nav");
 const menuBar = document.querySelectorAll(".menu-toggle__bar");
 const nav = document.querySelector(".header__nav");
 
-window.addEventListener("resize", () => {
-  nav.style.removeProperty("clip-path");
-});
-
 const gsapsetMobile = () => {
-  if ((window, matchMedia("(max-width: 1024px)").matches)) {
+  if (window.matchMedia("(max-width: 1024px)").matches) {
     gsap.set(nav, {
       clipPath: "inset(0 100% 0 0)",
     });
@@ -150,4 +146,26 @@ toggleBtn.addEventListener("click", () => {
     });
     bodyLock();
   }
+});
+
+let lastScroll = 0;
+
+const handleScroll = () => {
+  if (window.innerWidth > 1024) {
+    const currentScroll = window.scrollY;
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header.classList.add("is-hidden");
+    } else {
+      header.classList.remove("is-hidden");
+    }
+    lastScroll = currentScroll;
+  } else {
+    header.classList.remove("is-hidden");
+  }
+};
+
+window.addEventListener("scroll", handleScroll);
+
+window.addEventListener("resize", () => {
+  handleScroll();
 });
