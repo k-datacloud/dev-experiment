@@ -4,11 +4,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="dist/reset.css" />
   <link rel="stylesheet" href="dist/style.css" />
   <title>Document</title>
 </head>
 
 <body>
+  <header class="header">
+    <div class="header__wrapper">
+      <h1 class="site-title">
+        <a class="site-title-link" href="">
+          <img src="assets/logo-black.svg" alt="日本エキスパートホールディングス株式会社のロゴ" data-logo-black="assets/logo-black.svg"
+            data-logo-white="assets/logo-white.svg">
+        </a>
+      </h1>
+      <nav class="header__nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="header-list">
+          <li class="header-list__item"><a class="header__link" href="">
+              <span class="c-text-wrapper">
+                <span class="header__link-line">TOP</span>
+              </span>
+            </a>
+          </li>
+          <li class="header-list__item"><a class="header__link" href="">
+              <span class="c-text-wrapper">
+                <span class="header__link-line">ABOUT</span>
+              </span>
+            </a></li>
+          <li class="header-list__item"><a class="header__link" href="">
+              <span class="c-text-wrapper">
+                <span class="header__link-line">SERVICES</span>
+              </span>
+            </a></li>
+          <li class="header-list__item"><a class="header__link" href="">
+              <span class="c-text-wrapper">
+                <span class="header__link-line">TALENT</span>
+              </span>
+            </a></li>
+          <li class="header-list__item"><a class="header__link" href="">
+              <span class="c-text-wrapper">
+                <span class="header__link-line">CONTACT</span>
+              </span>
+            </a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle-wrapper">
+        <button type="button" class="menu-toggle js-open-nav" aria-label="メニューを開く" aria-expanded="false"
+          aria-controls="global-nav">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
   <section class="p-talent-list">
     <div class="l-wrapper">
       <div class="talent-list">
@@ -101,6 +153,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
   <script src="dist/jex.js"></script>
 </body>

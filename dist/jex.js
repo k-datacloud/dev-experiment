@@ -63,3 +63,91 @@ modalOpen.forEach((item, index) => {
     }
   });
 });
+
+const header = document.querySelector(".header");
+const headerLogo = document.querySelector(".site-title img");
+const headerLinks = document.querySelectorAll(".header__link-line");
+const toggleBtn = document.querySelector(".js-open-nav");
+const menuBar = document.querySelectorAll(".menu-toggle__bar");
+const nav = document.querySelector(".header__nav");
+
+window.addEventListener("resize", () => {
+  nav.style.removeProperty("clip-path");
+});
+
+const gsapsetMobile = () => {
+  if ((window, matchMedia("(max-width: 1024px)").matches)) {
+    gsap.set(nav, {
+      clipPath: "inset(0 100% 0 0)",
+    });
+    gsap.set(headerLinks, {
+      yPercent: 100,
+    });
+  } else {
+    gsap.set(nav, {
+      clearProps: "clip-path",
+    });
+    gsap.set(headerLinks, {
+      clearProps: "transform",
+    });
+  }
+};
+
+gsapsetMobile();
+
+window.addEventListener("resize", () => {
+  gsapsetMobile();
+});
+
+const navtl = gsap.timeline();
+
+toggleBtn.addEventListener("click", () => {
+  const navtl = gsap.timeline();
+  if (nav.classList.contains("is-open")) {
+    nav.classList.remove("is-open");
+    header.classList.remove("is-open");
+    headerLogo.src = headerLogo.dataset.logoBlack;
+    menuBar.forEach((item) => {
+      item.classList.remove("is-active");
+    });
+    gsap.to(nav, {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power1.out",
+      onComplete: () => {
+        gsap.set(nav, {
+          clipPath: "inset(0 100% 0 0)",
+          opacity: 1,
+        });
+        gsap.set(headerLinks, {
+          yPercent: 100,
+        });
+      },
+    });
+    bodyUnLock();
+  } else {
+    navtl
+      .to(nav, {
+        clipPath: "inset(0 0% 0 0)",
+        duration: 0.8,
+        ease: "power2.out",
+      })
+      .to(
+        headerLinks,
+        {
+          yPercent: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.05,
+        },
+        "-=0.2"
+      );
+    nav.classList.add("is-open");
+    header.classList.add("is-open");
+    headerLogo.src = headerLogo.dataset.logoWhite;
+    menuBar.forEach((item) => {
+      item.classList.add("is-active");
+    });
+    bodyLock();
+  }
+});
