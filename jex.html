@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="dist/style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <section class="p-talent-list">
+    <div class="l-wrapper">
+      <div class="talent-list">
+        <a class="js-modal-open" data-target="sadatoki">
+          <article class="talent-list__card">
+            <div class="l-image-wrapper">
+              <img src="" alt="" />
+            </div>
+            <span class="talent-list__position">ニートだよ</span>
+            <p class="talent-list__name">定時海聖</p>
+          </article>
+        </a>
+        <a class="js-modal-open" data-target="nagase">
+          <article class="talent-list__card">
+            <div class="l-image-wrapper">
+              <img src="" alt="" />
+            </div>
+            <span class="talent-list__position">tokioのボーカル</span>
+            <p class="talent-list__name">長瀬智也</p>
+          </article>
+        </a>
+        <a class="js-modal-open" data-target="yamaguchi">
+          <article class="talent-list__card">
+            <div class="l-image-wrapper">
+              <img src="" alt="" />
+            </div>
+            <span class="talent-list__position">tokioのベース</span>
+            <p class="talent-list__name">山口達也</p>
+          </article>
+        </a>
+        <a class="js-modal-open" data-target="matsuoka">
+          <article class="talent-list__card">
+            <div class="l-image-wrapper">
+              <img src="" alt="" />
+            </div>
+            <span class="talent-list__position">tokioのドラム</span>
+            <p class="talent-list__name">松岡昌宏</p>
+          </article>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dummy"></section>
+  <section class="dummy"></section>
+
+  <div class="modal js-modal">
+    <div class="modal-content" onwheel="event.stopPropagation();">
+      <button type="button" class="modal-close js-modal-close">Close</button>
+      <article class="modal-card" id="sadatoki">
+        <div class="l-image-wrapper">
+          <img src="assets/keiichi_oh_off.png" alt="" />
+        </div>
+        <span class="modal-card__position">ニートだよ</span>
+        <p class="modal-card__name">定時海聖</p>
+        <p class="modal-card__text modal-card__text--background"></p>
+        <p class="modal-card__text modal-card__text--bio"></p>
+      </article>
+      <div class="divider"></div>
+      <article class="modal-card" id="nagase">
+        <div class="l-image-wrapper">
+          <img src="assets//shinobu_matsui_off.png" alt="" />
+        </div>
+        <span class="modal-card__position"></span>
+        <p class="modal-card__name">定時海聖</p>
+        <p class="modal-card__text modal-card__text--background"></p>
+        <p class="modal-card__text modal-card__text--bio"></p>
+      </article>
+      <div class="divider"></div>
+      <article class="modal-card" id="yamaguchi">
+        <div class="l-image-wrapper">
+          <img src="assets/yusuke_inagaki_off.png" alt="" />
+        </div>
+        <span class="modal-card__position">ニートだよ</span>
+        <p class="modal-card__name">定時海聖</p>
+        <p class="modal-card__text modal-card__text--background"></p>
+        <p class="modal-card__text modal-card__text--bio"></p>
+      </article>
+      <div class="divider"></div>
+      <article class="modal-card" id="matsuoka">
+        <div class="l-image-wrapper">
+          <img src="assets//daisuke_chiba_off.png" alt="" />
+        </div>
+        <span class="modal-card__position">ニートだよ</span>
+        <p class="modal-card__name">定時海聖</p>
+        <p class="modal-card__text modal-card__text--background"></p>
+        <p class="modal-card__text modal-card__text--bio"></p>
+      </article>
+      <div class="divider"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="dist/jex.js"></script>
+</body>
+
+</html>

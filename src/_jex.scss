@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+.dummy {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.modal {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-content {
+    background: white;
+    max-height: 100vh; /* ← モーダルの中の高さを制限 */
+    overflow-y: auto; /* ← 中身が多いときにスクロール可能にする */
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    position: relative;
+  }
+
+  .modal-close {
+    position: fixed;
+    font-size: 14px;
+    top: 20px;
+    right: 30px;
+    padding: 6px 24px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid rgba($color: #222222, $alpha: 0.5);
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    &:hover::after {
+      clip-path: ellipse(100% 150% at bottom center);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      clip-path: ellipse(100% 0% at bottom center);
+      background-color: #222222;
+      transition: clip-path 0.5s ease;
+    }
+  }
+
+  .modal-card {
+    padding: 80px;
+    .l-image-wrapper {
+      margin-bottom: calc(32 / 16 * 1rem);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__position {
+      display: inline-block;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      margin-bottom: calc(16 / 16 * 1rem);
+    }
+
+    &__name {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      margin-bottom: calc(20 / 16 * 1rem);
+    }
+
+    &__text {
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+      text-align: justify;
+
+      &--bg {
+        margin-bottom: calc(24 / 16 * 1rem);
+      }
+    }
+  }
+
+  .circle {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    &--red {
+      background-color: #ce0014;
+    }
+
+    &--blue {
+      background-color: #0068b7;
+    }
+
+    &--green {
+      background-color: #008842;
+    }
+
+    &--pink {
+      background-color: #eb6d8e;
+    }
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
+  }
+}

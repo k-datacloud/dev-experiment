@@ -2,12 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="dist/reset.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
 
+  <style>
+    canvas {
+      margin: 30px;
+      border: 1px solid #000;
+    }
+  </style>
+
     
+    <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+    <script>
+      // setup scene, camera, and renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer();
+
+      // set size of renderer
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(devicePixelRatio);
+      renderer.setClearColor(0x000000, 1);
+      document.body.appendChild(renderer.domElement);
+
+      // add sphere
+      const geometry = new THREE.SphereGeometry(100);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0x33ccff,
+        roughness: 0.5,
+        metalness: 0.4,
+      });
+      const sphere = new THREE.Mesh(geometry, material);
+      scene.add(sphere);
+
+      // add light
+      const light = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(light);
+
+      // add camera
+      camera.position.z = 300;
+
+      renderer.render(scene, camera);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        // sphere.rotation.x += 0.01;
+        sphere.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+
+      animate();
     
+    </script>
 </body>
 </html>
