@@ -1,5 +1,7 @@
-.loading__text {
-  font-size: 80px;
+.loading {
+  &__text {
+    font-size: 80px;
+  }
 }
 
 .text-wrapper {
@@ -10,5 +12,3 @@
 .digit {
   display: block;
 }
-
-/*# sourceMappingURL=style.css.map */

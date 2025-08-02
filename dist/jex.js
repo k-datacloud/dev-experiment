@@ -169,3 +169,15 @@ window.addEventListener("scroll", handleScroll);
 window.addEventListener("resize", () => {
   handleScroll();
 });
+
+const line = document.querySelector("#svgAnimationLine");
+const lineLength = line.getTotalLength();
+
+line.style.strokeDasharray = lineLength;
+line.style.strokeDashoffset = lineLength;
+
+gsap.to(line.style, {
+  strokeDashoffset: 0,
+  duration: 7,
+  ease: "expo.out",
+});
